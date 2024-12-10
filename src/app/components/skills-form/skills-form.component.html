@@ -1,0 +1,79 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form class="skill-form" (ngSubmit)="submit()" [formGroup]="skillsForm">
+        <!-- form field -->
+        <div class="form-field">
+
+          <div class="example-full-width">
+            <mat-label>Skill Name</mat-label>
+            <input
+            matInput
+            type="text"
+            name="skillName"
+            placeholder="eg. Public Speaking"
+            required
+            formControlName="skillsName">
+          </div>
+        </div>
+        <!-- form field -->
+          <!-- input -->
+          <div *ngIf="action =='addTechnicalSkill'" class="form-field">
+            <mat-label>Technical Skills Level</mat-label>
+            <mat-select
+             formControlName="technicalLevel">
+              <mat-option *ngFor="let skill of technicalSkills" [value]="skill">
+                {{skill}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div *ngIf="action =='addSoftSkill'" class="form-field">
+            <mat-label>Soft Skill Level</mat-label>
+            <mat-select
+             formControlName="softSkillsLevel">
+              <mat-option *ngFor="let skill of softSkills" [value]="skill">
+                {{skill}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div *ngIf="action =='addLanguageLevel'"  class="form-field">
+            <mat-label>Language Level</mat-label>
+            <mat-select
+             formControlName="languageLevel">
+              <mat-option *ngFor="let skill of languageSkills" [value]="skill">
+                {{skill}}
+              </mat-option>
+            </mat-select>
+          </div>
+          
+          <!-- <label class="form-label">Level</label>
+          <mat-slider
+            class="example-margin"
+            [(ngModel)]="value"
+            (change)="onSliderChange($event)"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <input type="range" matSliderThumb formControlName="level" />
+          </mat-slider> -->
+
+        <div class="save-button">
+          <ng-container *ngIf="!isSending; else elseTemplate">
+            <button (keydown.enter)="(submit)" type="submit" class="button">
+              Add
+            </button>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <mat-spinner id="sending" ></mat-spinner>
+          </ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

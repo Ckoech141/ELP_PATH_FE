@@ -1,0 +1,189 @@
+<div class="container" *ngIf="isCvComplete" >
+    <div class="row">
+        <div class="col-sm-12 d-flex  justify-content-between align-items-center">
+            <button class="btn download" (click)="generateCv()"  *ngIf="isUser; else notUser"><b>Download</b></button>
+            <ng-template #notUser>
+                <button class="btn download"><b>Request Cv</b></button>
+            </ng-template>
+        </div>
+        
+     </div>
+</div>
+<div class="container" *ngIf="isCvComplete; else notComplete" >
+    <div class="row" id="cv" #cv>
+
+        <div class="col-sm-12 d-flex align-items-center justify-content-between py-3">
+            <div class="col-sm-6">
+                <h1><b>{{appUser.firstName}} <br> {{appUser.lastName}}</b></h1>
+            </div>
+            <div class="col-sm-6">
+                <p class="m-0">Location:<span class="appColor"> Nairobi, Kenya</span></p>
+                <p class="m-1">Email Address: <span class="appColor">{{scholarProfile.email}}</span></p>
+                <p class="m-0">Telephone Number: <span class="appColor">{{scholarProfile.phoneNo}}</span></p>
+                <p class="m-1">Linked-In: </p>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <p class="appColor d-flex align-items-center"><span class="ms-2"><b>Proffessional Summary</b></span></p>
+            <p>{{scholarBio}}</p>
+        </div>
+        <div class="col-sm-12 d-flex justify-content-between">
+            <!-- <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Add Education details.
+
+                </mat-panel-title>
+                <mat-panel-description>
+                    A maximum of three.
+                </mat-panel-description>
+
+            </mat-expansion-panel-header>
+            </mat-expansion-panel> -->
+
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Education</b></span></p>
+                <div class="w-100" *ngIf="scholarEducation; else dummy">
+                    <div class="w-100"  *ngFor="let edu of scholarEducation">
+                        <h6><b>{{edu.institutionName}}</b></h6>
+                        <div class="d-flex justify-content-between dates ms-2">
+                            <p class="m-0"><i>{{edu.startYear | date}}</i></p>
+                            <p class="m-0"><i>{{edu.graduationYear | date}}</i></p>
+                        </div>
+                        <ul>
+                            <li> {{edu.course_name}}</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <ng-template #dummy>
+                    <div class="w-100">
+                        <p>Institution name</p>
+                        <p>Course studied</p>
+                        <div class="d-flex dates justify-content-between dates">
+                            <p>Start date</p>
+                            <p>End date</p>
+                        </div>
+                    </div>
+                </ng-template>
+                
+            </div>
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Work Experience</b></span></p>
+                <div class="w-100" *ngIf="scholarWorkPlaces; else noJob">
+                    <div class="w-100" *ngFor="let job of scholarWorkPlaces">
+                        <h6><b>{{job.position}} at {{job.companyName}}</b></h6>
+                        <div class="w-75 d-flex justify-content-between dates ms-2 m-0">
+                            <p class="m-0"><i>Start: {{job.start_date | date}} </i></p>
+                            <p  class="m-0" *ngIf="!job.toDate; else toDate"><i>End: {{job.end_date | date}}</i></p>
+                            <ng-template #toDate>
+                                <p>To Date</p>
+                            </ng-template>
+                        </div>
+                        <ul>
+                            <li>{{job.description.split('.')[0]}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <ng-template #noJob>
+                    <div class="w-100">
+                        <p>E & M Technologies.</p>
+                        <p>Software Developer</p>
+                        <div class="w-100 d-flex justify-content-between dates">
+                            <p>Start </p>
+                            <p>end</p>
+                        </div>
+                    </div>
+                </ng-template>
+                
+            </div>
+        </div>
+        <div class="col-sm-12 d-flex  justify-content-between">
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Languages</b></span></p>
+                <div class="w-100" *ngIf="languageSkills; else noSkills">
+                    <div class="w-100" *ngFor="let skill of languageSkills">
+                        <p>{{skill.skillsName}} - {{skill.languageLevel}}</p>
+                        
+                    </div>
+                </div>
+                <ng-template #noSkills>
+                    <div class="w-100">
+                        <p>Skill name</p>
+                        <p>Skill level(Junior, Mid, Senior)</p>
+                    </div>
+                </ng-template>
+                
+            </div>
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Soft skills</b></span></p>
+                <div class="w-100" *ngIf="scholarSkills; else noSkills">
+                    <div class="w-100" *ngFor="let skill of scholarSkills">
+                        <p>{{skill.skillsName}} - {{skill.softSkillsLevel}}</p>
+                        
+                    </div>
+                </div>
+                <ng-template #noSkills>
+                    <div class="w-100">
+                        <p>Skill name</p>
+                        <p>Skill level(Junior, Mid, Senior)</p>
+                    </div>
+                </ng-template>
+                
+            </div>
+            
+        </div>
+        <div class="col-sm-12  d-flex justify-content-between">
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Technical skills</b></span></p>
+                <div class="w-100" *ngIf="technicalSkills; else noSkills">
+                    <div class="w-100" *ngFor="let skill of technicalSkills">
+                        <p>{{skill.skillsName}} - {{skill.technicalLevel}}</p>
+                        
+                    </div>
+                </div>
+                <ng-template #noSkills>
+                    <div class="w-100">
+                        <p>Skill name</p>
+                        <p>Skill level(Junior, Mid, Senior)</p>
+                    </div>
+                </ng-template>
+                
+            </div>
+            <div class="col-sm-6">
+                <p class="d-flex align-items-center appColor"><span class="ms-2"><b>Achievements</b></span></p>
+                <div class="w-100" *ngIf="scholarAchievements; else noAchieves">
+                    <div class="w-100" *ngFor="let achieve of scholarAchievements">
+                        <h6><b>{{achieve.name}}</b></h6>
+                        <ul>
+                            <li>{{achieve.description.split('.')[0]}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <ng-template #noAchieves>
+                    <div class="w-100">
+                        <p>Achievement name.</p>
+                        <p>Achievement short description.</p>
+                    </div>
+                </ng-template>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<ng-template #notComplete>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 py-3 scrollNecc">
+                <h3><b>Dear {{appUser.firstName}} {{appUser.lastName}},</b></h3>
+                <p class="my-2">Please complete your user profile to have a complete curriculum vitae..<br> Add the following:</p>
+                <ul>
+                    <li *ngFor="let err of userDataRequired"><a href="#">{{err}}</a></li>
+                </ul>
+                <button class="btn btn-primary" [routerLink]="'/user_profile'" (click)="close()">Update profile</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

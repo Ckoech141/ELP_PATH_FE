@@ -1,0 +1,19 @@
+import * as i0 from "@angular/core";
+export declare class NgSelectConfig {
+    placeholder: string;
+    notFoundText: string;
+    typeToSearchText: string;
+    addTagText: string;
+    loadingText: string;
+    clearAllText: string;
+    disableVirtualScroll: boolean;
+    openOnEnter: boolean;
+    appendTo: string;
+    bindValue: string;
+    bindLabel: string;
+    appearance: string;
+    clearSearchOnAdd: boolean;
+    deselectOnClick: boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NgSelectConfig, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<NgSelectConfig>;
+}

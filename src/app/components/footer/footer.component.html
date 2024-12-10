@@ -1,0 +1,180 @@
+<footer class="text-center" style="background-color:rgb(139,40,27);">
+
+  <div class="container p-4 text-white">
+    <section class=" row mb-4">
+      <div class=" d-flex align-items-center justify-content-center">
+        <div>
+          <p class="pt-2">
+            <strong>Connect With Us On Social Networks</strong>
+          </p>
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank"
+            href="https://www.facebook.com/groups/equitybankpreuni/?ref=share" role="button"> <fa-icon
+              [icon]="faFacebook" class="faPlus me-4"></fa-icon>
+          </a>
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank" href="https://x.com/KeEquityBank?s=09"
+            role="button"> <fa-icon [icon]="faTwitter" class="faPlus me-4"></fa-icon>
+          </a>
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank"
+            href="https://youtube.com/@EquityBank-official?si=c0G-oLyLNIvXHfMG" role="button"><fa-icon
+              [icon]="faYoutube" class="faPlus me-4"></fa-icon>
+          </a>
+
+
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank"
+            href="https://www.instagram.com/equitygroup?igsh=bHlyOGtzb2Nkc3Ny" role="button"> <fa-icon
+              [icon]="faInstagram" class="faPlus me-4"></fa-icon>
+          </a>
+
+
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank"
+            href="https://www.linkedin.com/groups/8380010/" role="button"><fa-icon [icon]="faLinkedin"
+              class="faPlus me-4"></fa-icon>
+          </a>
+          <a data-mdb-ripple-init class="text-white me-1" target="_blank" href="#!" role="button"><fa-icon
+              [icon]="faTelegram" class="faPlus me-4"></fa-icon>
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+    <br>
+    <section class="">
+      <form action="">
+        <div class="row align-items-center justify-content-between">
+
+          <form [formGroup]="subscriptionForm" class="row">
+            <h5 class="col-md-3">
+              <strong>Discover our Newsletters.</strong>
+            </h5>
+            <div class="col-md-7">
+              <div data-mdb-input-init class="form-outline mb-4" style="justify-items: right">
+                <input type="email" id="form5Example24" formControlName="email" class="form-control" />
+                <label class="form-label" for="form5Example24">Email address</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <ng-container *ngIf="issubscribing; else elseTemplate">
+                <button class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  subscribing...
+                </button>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <div class="col-auto">
+                  <button data-mdb-ripple-init type="submit" (click)="submitEmail()"
+                    class="btn btn-warning mb-4 apColor">Subscribe
+                  </button>
+                </div>
+              </ng-template>
+            </div>
+         
+
+          </form>
+        </div>
+
+      </form>
+    </section>
+
+
+    <!-- <section class="mb-4">
+        <p>
+          ELP develops leadership and innovation skills by providing scholars with meaningful professional opportunities and networks across the world.
+        </p>
+      </section>
+    -->
+    <br>
+    <section class="">
+
+      <div class="row">
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <h6 class="text-uppercase fw-bold mb-4">
+            USEFUL LINKS
+          </h6>
+          <p>
+            <a href="https://equitygroupholdings.com/ke/terms-and-conditions" class="text-reset">Terms and
+              Conditions</a>
+          </p>
+          <p>
+            <a href="https://equitygroupholdings.com/privacy-policy" class="text-reset">Privacy policy</a>
+          </p>
+          <p>
+            <a href="https://equitygroupholdings.com/wp-content/uploads/2021/10/EGH-Plc-CODE-OF-CONDUCT-AND-ETHICS.pdf"
+              class="text-reset">Code of conduct</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Security</a>
+          </p>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <h6 class="text-uppercase fw-bold mb-4">
+            HELP
+          </h6>
+          <p>
+            <a href="https://www.equityleadersprogram.com/faqs" class="text-reset">FAQs</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupfoundation.com" class="text-reset">EGF</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/ke/newsroom?tab=new-tab-25"
+              class="text-reset">Media</a>
+          </p>
+          <p>
+            <a target="_blank" href="#!" class="text-reset">Photos</a>
+          </p>
+
+        </div>
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <h6 class="text-uppercase fw-bold mb-4">
+            OUR PARTNERS
+          </h6>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/cd/en/" class="text-reset">Elp DRC</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/rw/" class="text-reset">Elp Rwanda</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/ug/" class="text-reset">Elp Uganda</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/tz/" class="text-reset">Elp Tanzania</a>
+          </p>
+          <p>
+            <a target="_blank" href="https://equitygroupholdings.com/ss/" class="text-reset">Elp South Sudan</a>
+          </p>
+        </div>
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <h6 class="text-uppercase fw-bold mb-4">GET IN TOUCH</h6>
+          <p><i class="fas fa-home me-3"></i> Equity Centre, Upperhill </p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            EquityLeadersProgram.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> Equitygroupfoundation&#64;equityleadersprogram</p>
+          <p><i class="fas fa-print me-3"></i> + 254 763000000</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="text-center text-white py-3 foot" style="background-color:rgb(0, 4, 4);">
+    © 2024 Copyright:
+    <a class="text-reset fw-bold" href="https://equitygroupholdings.com/">Equity Leaders Program</a>
+  </div>
+
+</footer>

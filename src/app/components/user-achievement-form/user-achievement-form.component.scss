@@ -1,0 +1,21 @@
+mat-form-field{
+    max-width:12em;
+    width: 8em;
+}
+.card{
+    padding: 1em 1.5em;
+}
+#submit{
+    display: flex;
+    position: relative;
+    float: right;
+    right: 3px;
+    padding:8px 14px;
+    border-radius: 10px;
+    background-color: rgb(163,43,41);
+    border: none;
+    color: white;
+}
+#sending{
+    zoom: 0.5;
+}

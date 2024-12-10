@@ -1,0 +1,35 @@
+<div class="container">
+  <!-- column1 -->
+
+  <div class="column1-container">
+    <!-- Events -->
+    <div class="events-container">
+      <div class="header">
+        <span>Events</span>
+        <button (click)="addEventDialog()">Add Event</button>
+      </div>
+      <app-admin-chapter-events></app-admin-chapter-events>
+    </div>
+  </div>
+
+  <!--column2-->
+  <div>
+    <!-- (click)="hubJoinRequests()" -->
+    <div class="activity-container">
+      <div class="card card-requests" [routerLink] ="['/admin/events-approval']" >
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <button class="btn btn-requests">
+           
+            Events Approval Requests</button>
+            <div class="rounded-circle">
+              <span class="count">{{requests?.length}}</span>
+            </div>
+        </div>
+      </div>
+      <app-admin-ongoing-events-card></app-admin-ongoing-events-card>
+      <app-admin-scheduled-events-card></app-admin-scheduled-events-card>
+      <app-admin-recent-events-card></app-admin-recent-events-card>
+     
+      
+
+    </div>

@@ -1,0 +1,14 @@
+<div class="p-2">
+  <div class="user-feedback-header">
+    <span>Give Your Feedback</span>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="postFeedback()">
+    <div class="form-group">
+      <textarea class="input form-control" rows="2" type="text" placeholder="Give feedback here" formControlName="message"></textarea>
+      <div class="w-100"> <button class="submit btn my-3 w-100">Submit</button></div>
+    </div>
+
+   
+  </form>
+</div>

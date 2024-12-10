@@ -1,0 +1,222 @@
+<div class="container-fluid">
+
+</div>
+
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="logo">
+      <img src="/assets/images/bank-logo.png" class="img_logo" alt="" />
+    </div>
+    <div class="nav-item-login">
+      <button mat-button [matMenuTriggerFor]="menu" class="us">About Elp</button>
+      <mat-menu #menu="matMenu" class="custom-menu">
+        <a mat-menu-item href="#stats">Our Statistics</a>
+        <a mat-menu-item href="#latest">News & Updates</a>
+        <a mat-menu-item href="#works">Job Opportunities</a>
+        <a mat-menu-item href="#impactStories">Spotlight</a>
+        <a mat-menu-item href="#ask">Faqs</a>
+      </mat-menu>
+
+      <ul class="item_nav">
+        <li class="item-nav-home"><a href="">Home</a></li>
+        <li class="item-nav-contact"><a href="">Contact</a></li>
+      </ul>
+      <!-- <a href="" routerLink="/interns-2024" class="login">ELP Interns</a> -->
+      <a href="" routerLink="/login" class="login">Login</a>
+
+    </div>
+  </nav>
+  <div class="mt-1">
+    @if (slides) {
+    <ngb-carousel class="carousel-fade shadow-2-strong" id="outer-slide" [showNavigationArrows]="showNavigationArrows"
+      [showNavigationIndicators]="showNavigationIndicators" height:70vh>
+
+      @for (slide of slides; track slide) {
+      <ng-template ngbSlide>
+
+        <div class="picsum-img-wrapper" id="inner-slide">
+          <img id="slide-img" [src]="slide.src" alt="{{slide.title}}" loading="lazy" />
+          <div class="carousel-caption about">
+            <h3 id="slide-title">{{slide.title}}</h3>
+            <p class="" id="slide-subtitle">{{slide.subtitle}}</p>
+          </div>
+        </div>
+      </ng-template>
+      }
+    </ngb-carousel>
+    }
+  </div>
+
+
+
+  <section class="" id="stats">
+    <div>
+      <h2 class="mt-3 text-center" style="color:#AC3F3E; font-weight: bold;">IMPACT AT A GLANCE</h2>
+
+      <div class="row justify-content-around">
+
+        <div class="col-lg-2" *ngFor="let item of cards">
+          <div class="scholar-card d-flex flex-column justify-content-center align-items-center mt-3 mb-3"
+            style="border-radius: 50%;">
+            <img [src]="item.image" class="div-img" alt="" style="border-radius: 50%;" />
+            <img [src]="item.Image" alt="" class="img-i">
+            <br>
+            <div class="counts">{{ item.counts }}</div>
+            <br>
+          </div>
+          <div class="scholar" style="background-color:  #ECEAEC; color: black;">{{ item.scholar|uppercase}}</div>
+        </div>
+
+      </div>
+    </div>
+    <!-- <ul>
+        <li class="card_list" *ngFor="let item of cards">
+          <div class="div-img">
+                <img [src]="item.image" alt="" />
+              </div>
+              <div class="counts">{{ item.counts }}</div>
+            <div class="scholar">{{ item.scholar }}</div>
+        </li>
+      </ul> -->
+  </section>
+  <section class="news-updates" id="latest">
+    <h2 style="font-weight: bold;">NEWS & UPDATES</h2>
+
+    <div class="bg-light">
+      <div class="row">
+        <div class="col-md-3 col-sm-12 mb-3 border" *ngFor="let item of newsUpate.slice(startIndex, endIndex)">
+          <div class="header">
+            <h5 class="text-center m-3" style="font-weight: bold;">{{item.title.slice(0,30)}}...</h5>
+          </div>
+          <div class="content">
+            <div class="posters ">
+              <div class="poster mb-2 ">
+                <img [src]="item.image" style="height: 18em; width: 100%;" alt="Poster 1">
+              </div>
+              <div class="message mt-2">
+                <div class="content">
+                  <p> {{item.message.slice(0, 50)}}...</p>
+                </div>
+                <a class="read-more-btn" [routerLink]="['news-read-more']" [queryParams]="{item: item.id}">Read More</a>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div>
+      <button id="newsprevbtn" (click)="newsPrevPage()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button id="newsnextbtn" (click)="newsNextPage()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+
+    <br>
+    <button id="allournews" routerLink="allnews">All Our News
+    </button>
+    <br>
+  </section>
+
+  <section class="oppot-job" id="works">
+    <h2 class="title-job">Job Opportunities</h2>
+    <div class="container-fluid">
+      <div class="row flex-wrap align-items-center justify-content-evenly">
+
+        <div class="col-lg-6  mt-3" *ngFor="let job of landingJobs">
+          <a href="/login" class="jobHover">
+            <div class="jobCard d-flex">
+              <div class="whyAreYou">
+                <img [src]="job.jobPoster" class="whyAre"
+                  onerror="this.src=`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAJFBMVEXQ0NDw8PDj4+Pc3NzU1NTn5+fz8/Pt7e3f39/X19fq6urNzc0EuZL3AAADYElEQVR4nO2bCZajIBRFC0EFs//9tomWpZFRUXj2uxvIv+cPMuXnhxBCCCGEEEIIIYQQQgghhBBCCCHkSShjpNZaGlU6ktMY3faieyP6VpaO5hRKjyZiZvQZgHXkILZ0XQtabGNaOvFN12PayJ3Jx2YwpQM7gLTkZbLBy4357pc/4PpGNU4XIdBmmuzdLmiF5k3MmJpX6QBTMIO9+3+7BkrGPpYXsD422psYrBGgmoCMBqoz1QZkGsqU4VkyT+qZ8DRDkgl9Z6C2AZ4185uhdHxJBJoGqmX8q2YBtmoeh7MvMaWjS2V3MvMH3E7TM9CwRtmEY3/W9Ugr5gWlbS5Qq/8Vo833gO4Qa2zGtNus4M2xDaYd+m66BRB9Uzqa0yipm7ZtGg3aLIQQQgghhBBC/hfwThLdSMBzUQdK9qLFPbXaML3Le4jN/MbwETbLu7wH9M3qjSG8jV5fyoFX2tfdArLNa3dPgmvzstzHwfaN7f4KNTdWF1Ab7XpcgGez733cvnl5H32A2ThrDLDSAi5INr5+mYH5n5G/Xxab0mHGEawxoNyEa2y2AXjIFusCYGNbW3psSofrJar3VzZVT4H9y6i6Kk028b+X6nK3jey7aJu4mVzOxrzPViJtXP/1DNjc9r0xU93E2Fj/TxzFTTbytwfCNupYXu7LzSq+oM1xl3tsNt+MgM0ZlztszHbOem3Oubxtrt3fmO9vhtvmRL8sXGpjic9lk8PlUhvrGsthk8XlQhvHetFqk8nlMhtnfBabbC4X2Xji29lkdLnExvPPoJ1NVpcLbAL7q41NZpfsNsG94somu0tmm4j4FpsLXLLaRO3hZ5tLXDLaeHt/a/M6vH+5ySb6bKVRSWdKJWwS9vDNkf3+nTZJZ15XumSwieyXezhpU5XLSZu0c9UbOLGTvuibcYbDNhW6HLaprF9+OXRyW12/zBw5gTI11tiH9FP1KvtlJjU3Nbuk2sjk+6F7Sbn33J1bVke8jelqdxltHlJjE09yiZOpv18molwA+uXDc2pMxMig1JiIkMHJS1gGKC9BGSiXgEyt+xcHT3LxytS95rfgcykdWzIPyotHBq1f3jzJxSUD6eKQwXSxy4C6WGUqPYMNY80L3Eye2bso3aBikcHFMZoJIYQQQgghpHr+AZZ6NU6cNizeAAAAAElFTkSuQmCC`" />
+              </div>
+              <div class="info-landing ps-2 d-flex flex-column">
+                <h5 class="text-start" style="color:rgb(163, 42, 41);"><b>{{job.jobTitle}}</b></h5>
+                <p class="text-justify wordwrap">{{ job.jobDescription.substring(0,150) }} ...</p>
+                <p class="deadline-date text-end me-1"><span style="color:rgb(163, 42, 41);">Contract Deadline
+                    :</span><b> Thu, Sep 7th 2023"</b></p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- <app-admin-jobcard-list></app-admin-jobcard-list> -->
+      </div>
+    </div>
+  </section>
+  <!-- <app-spotlight-source></app-spotlight-source>-->
+
+  <div id="impactStories">
+
+    <h3 class="text-center my-3 " style="font-weight: bold;">DISCOVER ELP IMPACT STORIES</h3>
+    <div class="row p-4 justify-content-around">
+      <div class="col-lg-3" *ngFor="let spot of spotlight.slice(startIndex, endIndex) ">
+        <div class="spotOwner d-flex flex-column align-items-center ">
+          <h5 class="my-3 text-center" style="font-weight: bold; height: 10vh;">{{spot.title}}</h5>
+          <ng-container *ngIf="spot.videoUrl; else elsetemplate">
+            <div  style="position: relative;">
+              <iframe [src]="spot.videoUrl" allow='autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture'
+              allowfullscreen></iframe>
+              <span style="position: absolute; top: 10px; left: 10px; background-color:white; color: black; padding: 5px; border-radius: 20px;">VIDEO</span>
+            </div>
+            
+          </ng-container>
+          <p></p>
+          <ng-template #elsetemplate >
+            <div style="position: relative;" (click)="openContentDialog(spot)">
+              <img src="{{spot.image}}" alt="" srcset="" style="border-radius: 10px; width: 100%; height : 10em;" >
+              <span style="position: absolute; top: 10px; left: 10px; background-color:white; color: black; padding: 5px; border-radius: 20px;">ARTICLE</span>
+                    
+            </div>
+           </ng-template>
+          <p class="text-center">{{spot.content.slice(0, 100)}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="spotlight.length > 4" id="videosBtn">
+      <button id="prevbtn" (click)="prevPage()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button id="nextbtn" (click)="nextPage()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+    <br>
+    <div class="d-flex align-items-center justify-content-center">
+      <button id="ourstories" routerLink="/more-videos">MORE IMPACT VIDEOS</button>
+    </div>
+
+    <br>
+  </div>
+
+
+
+  <section class="faqs p-4" id="ask">
+    <h2 class="bg-red my-3" style="color: #AA3B3A; font-weight: bold;">Frequently asked Questions</h2>
+    <ul class="list-que ">
+      <li class="item-que " *ngFor="let item of faqs">
+        <button class="faq-head mt-2 mx-2 p-2" (click)="isOpen(item)">
+          <span class="ms-3">{{ item.faq }}</span>
+
+          <ng-container *ngIf="!item.isHidden; else faplus">
+            <fa-icon [icon]="faMinus" class="faPlus me-3"></fa-icon>
+          </ng-container>
+          <ng-template #faplus>
+            <fa-icon [icon]="faPlus" class="faPlus me-3"></fa-icon>
+          </ng-template>
+
+        </button>
+        <div class="faq-content" *ngIf="!item.isHidden">
+          {{ item.counts }}
+        </div>
+      </li>
+    </ul>
+  </section>
+  <app-footer></app-footer>
+
+
+</div>

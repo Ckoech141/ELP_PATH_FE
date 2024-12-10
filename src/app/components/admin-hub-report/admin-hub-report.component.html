@@ -1,0 +1,18 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Hubs Report</h5>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button class="info" type="submit" mat-fab extended color="primary" [disabled]="loading" (click)="pullHubs()">
+      <span *ngIf="!loading">Download Report</span>
+      <div *ngIf="loading" class="spinner">
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      </div>
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>
+   

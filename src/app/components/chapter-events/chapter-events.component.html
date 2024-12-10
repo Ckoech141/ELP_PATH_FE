@@ -1,0 +1,72 @@
+<div class="container" *ngIf="showWhat; else elseBlock">
+    <div class="main-container" >
+      <!-- sub main container -->
+      <div class="submain-container" *ngFor="let data of chapterData">
+        <div class="content-container">
+          <!-- row1 -->
+          <div class="image" *ngFor="let image of data.imageUrls">
+            <img [src]="image" style="width: 15rem; height:15rem; padding:2rem" alt="" />
+          </div>
+  
+          <!-- row 2 -->
+          <div class="iconimage">
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>event</mat-icon>
+              <span>{{ data.eventDate | date }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>groups_outline</mat-icon>
+              <span>{{ data.organizer }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>schedule</mat-icon>
+              <span>{{ data.eventDate | date : "shortTime" }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo" *ngIf="data.location">
+              <mat-icon>location_on</mat-icon>
+              <span>{{ data.location }}</span>
+            </div>
+            
+            <div class="iconinfo">
+              <button class="btn btn-primary" (click)="joinEvent(data)">join event</button>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo" *ngIf="data.link">
+              <mat-icon>link</mat-icon>
+              <span>{{ data.link }}</span>
+            </div>
+          </div>
+  
+          <!-- row3 -->
+          <div class="details">
+            <!-- title -->
+            <div class="title b">
+              {{ data.eventTitle}}
+            </div>
+            <!-- description -->
+            <div class="description">
+              <p>
+                {{ data.description}}
+              </p>
+            </div>
+  
+          </div>
+        </div>
+        <!-- mat divider -->
+      </div>
+      <!-------------------------------------------------------------------------------------------------->
+    </div>
+  </div>
+  
+
+<ng-template class="container" #elseBlock>
+    <div class="row">
+        <div class="col-sm-12 py-5">
+            <h1 class="text-center">Ooooops, this chapter currently doesn't have any events.</h1>
+        </div>
+    </div>
+</ng-template>

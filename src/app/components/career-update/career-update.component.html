@@ -1,0 +1,123 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form #careerform="ngForm" class="education-form" (ngSubmit)="submit()">
+        <!-- form field -->
+        <div class="form-field"><span>Add Career</span>
+          <!-- label -->
+          <label class="form-label">Company Name/Organisation Name.</label>
+          <!-- input -->
+          <input
+            type="text"
+            name="companyName"
+            [placeholder]="careerData.companyName"
+            required
+            [(ngModel)]="companyName"
+          />
+        </div>
+        <!-- form field -->
+        <div class="form-field">
+          <label class="form-label">Company Sector </label>
+            <div class="example-full-width">
+              <input #input
+                     placeholder="Select"
+                     matInput
+                     name="organizationSector"
+                     [(ngModel)]="organizationSector"
+                     [matAutocomplete]="auto"
+                     (input)="filter()"
+                     (focus)="filter()">
+              <mat-autocomplete requireSelection #auto="matAutocomplete">
+                @for (option of filteredOptions; track option) {
+                  <mat-option [value]="option">{{option}}</mat-option>
+                }
+              </mat-autocomplete>
+            </div>
+        </div>
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Position </label>
+          <!-- input -->
+          <input
+            type="text"
+            name="position"
+            placeholder="eg. Business Consultant"
+            required
+            [(ngModel)]="position"
+          />
+        </div>
+           <!-- form field -->
+           <div class="form-field">
+            <!-- label -->
+            <label class="form-label">Role </label>
+            <!-- input -->
+            <mat-select
+            name="careerRole"
+            placeholder="eg. Senior"
+            required
+            [(ngModel)]="careerRole">
+              <mat-option value="Entry">Entry</mat-option>
+              <mat-option value="MidLevel">MidLevel</mat-option>
+              <mat-option value="Senior">Senior</mat-option>
+            </mat-select>
+            <!-- <input
+              type="text"
+              name="careerRole"
+              placeholder="eg. Senior"
+              required
+              [(ngModel)]="careerRole"
+            /> -->
+          </div>
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Description </label>
+          <!-- input -->
+          <textarea
+            type="text"
+            name="description"
+            required
+            [(ngModel)]="description"
+          ></textarea>
+        </div>
+
+        <!-- form field -->
+        <div class="form-field">
+          <!-- input  calender-->
+          <div class="calendar-input">
+            <!-- start date -->
+            <div class="date-start">
+              <label class="form-label">Start date</label>
+              <input type="date" name="start_date" [(ngModel)]="start_date" />
+            </div>
+            <!-- end date -->
+            <div class="date-end" *ngIf="!status.value.state">
+              <label class="form-label">Complete date</label>
+              <input type="date" name="end_date" [(ngModel)]="end_date" />
+            </div>
+            <br>
+
+          </div>
+          <section class="example-section" [formGroup]="status">
+            
+            <p><mat-checkbox formControlName="state">To Date</mat-checkbox></p>
+          </section>
+        </div>
+
+        <div class="save-button">
+          <button (keydown.enter)="(submit)" type="submit" class="button">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

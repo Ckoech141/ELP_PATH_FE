@@ -1,0 +1,124 @@
+<!-- admin-news-udate-putform.component.html -->
+
+<div class="main-container">
+    <div class="container">
+      <div class="col-sm-12">
+        <div class="row ">
+          <form #uploadForm="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <!-- Title and Content fields -->
+            <div class="top d-flex w-100 align-items-center justify-content-between">
+              <div class="image-preview">
+                <img *ngIf="data.jobPoster" [src]="data.jobPoster" alt="Image Preview" style="max-width: 150px; max-height: 150px;">
+              </div>
+              <div class="form-group w-50">
+                <label for="jobTitle">jobTitle:</label>
+                <input type="text" class="form-control" id="jobTitle" name="jobTitle" [(ngModel)]="data.jobTitle"  required placeholder="jobTitle" >
+              </div>
+
+            </div>
+
+            <div class="d-flex">
+              <div class="form-group">
+                <label for="organization">Organisation:</label>
+                <input type="text" id="organization" name="organization" class="form-control" [(ngModel)]="data.organization"  required placeholder="Organization">
+              </div>
+
+              <div class="form-group w-50">
+                <label for="title">applicationDeadLine:</label>
+                <input type="datetime" id="applicationDeadLine" class="form-control" name="applicationDeadLine" [(ngModel)]="data.applicationDeadLine"  required placeholder="DeadLine">
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <div class="form-group w-50">
+                <label for="title">jobType:</label>
+                <input type="text" id="jobType" name="jobType" class="form-control " [(ngModel)]="data.jobType"  required placeholder="JobType">
+              </div>
+              <div class="form-group w-50">
+                <label for="educationLevel">educationLevel:</label>
+                <input type="text" id="educationLevel" name="educationLevel" class="form-control" [(ngModel)]="data.educationLevel"  required placeholder="educationLevel">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="title">jobDescription:</label>
+              <input type="text" id="jobDescription" class="form-control" name="jobDescription" [(ngModel)]="data.jobDescription"  required placeholder="jobDescription">
+            </div>
+            <div class="form-group">
+              <label for="howToApply">howToApply:</label>
+              <input type="text" id="howToApply" name="howToApply" class="form-control" [(ngModel)]="data.howToApply"  required placeholder="howToApply">
+            </div>
+            
+            
+            
+            <div class="form-group">
+              <!-- label -->
+              <div class="form-label">
+                <div class="add-qualification" >
+                  <!-- <mat-icon>history_edu</mat-icon> -->
+                  Add Qualification
+                </div>
+              </div>
+              <!-- input (FormArray for jobQualifications) -->
+              <div>
+                <textarea
+                  name="jobQualifications"
+                  class="form-control"
+                  [(ngModel)]="data.jobQualifications"
+                  placeholder="eg.Proficiency in Microsoft Office Suite"
+                  wrap="hard"
+                  rows="3"
+                  cols="50"
+                  autocomplete="off"
+                ></textarea>
+              </div>
+            </div>
+          
+            <!-- Responsibilities -->
+            <div class="form-group">
+              <!-- label -->
+              <div class="form-label">
+                <div class="add-responsibility" >
+                  <!-- <mat-icon>add</mat-icon> -->
+                  Add Responsibility
+                </div>
+              </div>
+              <!-- input (FormControl for jobResponsibilities) -->
+              <div >
+                <textarea
+                name="jobResponsibilities"
+                [(ngModel)]='data.jobResponsibilities'
+                placeholder="eg. Project management and coordination"
+                wrap="hard"
+                rows="3"
+                cols="50"
+                autocomplete="off"
+              ></textarea>
+              </div>
+            </div>
+          
+  
+            <div class="form-group">
+              <label for="jobSalary">jobSalary:</label>
+              <input type="text" id="jobSalary" name="jobSalary" class="form-control" [(ngModel)]="data.jobSalary"  required placeholder="jobSalary">
+            </div>
+  
+            <div class="form-group" *ngIf="!data.jobPoster">
+              <label for="jobPoster">Image:</label>
+              <input type="file" id="jobPoster" name="jobPoster" [(ngModel)]="data.jobPoster" (change)="onFileChange($event)" required>
+            </div>
+            
+            <div class="submit-cancel">
+            <button class="btn " type="submit" [disabled]="newsForm.invalid">{{ data?.id ? 'Update' : 'Add' }}</button>
+            
+              <button class="btn"  (click)="onCancel()">Cancel</button>
+            
+          </div>
+          </form>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+  

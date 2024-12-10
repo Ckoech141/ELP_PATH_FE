@@ -1,0 +1,16 @@
+<h2>Event Details</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <td>{{ event.eventName }}</td>
+      <td>{{ event.eventDate }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+
+<div class="main-container">
+  <div class="container ">
+  <div class="form-container">
+ 
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <!-- Title and Content fields -->
+      <div class="form-field">
+        <label class="form-label">Title:</label>
+        <input type="text" formControlName="title" required placeholder="Title">
+      </div>
+      <br>
+      <div class="form-field">
+        <label class="form-label">Content</label>
+        <textarea formControlName="content" required placeholder="content"></textarea>
+      </div>
+    
+      <!-- File input for the image -->
+      <br>
+      <div class="form-field">
+        <label class="form-label">Image:</label>
+        <input type="file" id="image" name="image" (change)="onFileChange($event)" required>
+      </div>
+      <br>
+      <div class="form-field">
+        <label class="form-label">Add Video Url:</label>
+        <input type="url" formControlName="videoUrl" required>
+      </div>
+      <br>
+      <ng-container *ngIf="isSubmitting else elseTemplate">
+        <div class="spinner-border text-primary" role="status"></div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button type="submit" class="button">Submit:</button>
+      </ng-template>
+    </form>
+    
+  </div>
+  </div>
+  </div>

@@ -1,0 +1,84 @@
+<!-- <mat-progress-bar class="mt-3" mode="query" *ngIf="isLoading"></mat-progress-bar> -->
+
+<div class="contents">
+  <div class="container">
+    <mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
+    <div class="main-container">
+
+
+      <!-- sub main container -->
+      <div class="submain-container" *ngFor="let data of eventsData">
+        <div class="content-container" *ngIf="data.eventStatus != 'PAST'">
+          <!-- row3 -->
+          <div (click)="viewEventInfor(data.id)">
+            <div class="details" >
+              <!-- title -->
+              <div class="title">
+                {{ data.eventName}}
+              </div>
+              <!-- description -->
+              <div class="description">
+                <p>
+                  {{ data.eventDescription}}
+                </p>
+              </div>
+  
+            </div>
+            <!-- row1 -->
+            <div class="image" *ngFor="let image of data.eventImages">
+              <img [src]="image" style="width: 100%; height:auto; padding:0" alt="" />
+            </div>
+          </div>
+
+
+          <!-- row 2 -->
+          <div class="iconimage">
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>event</mat-icon>
+              <span>{{ data.eventDate | date }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>groups_outline</mat-icon>
+              <span>{{ data.organizer }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo">
+              <mat-icon>schedule</mat-icon>
+              <span>{{ data.eventDate | date : "shortTime" }}</span>
+            </div>
+            <!-- icon container -->
+            <div class="iconinfo" *ngIf="data.location">
+              <mat-icon>location_on</mat-icon>
+              <span>{{ data.location }}</span>
+            </div>
+            <ng-container *ngIf="!data.eventSubscription; else elseTemplate">
+              <div class="delete">
+                <button class="btn btn-sm btn-primary" (click)="confirmAttendance(data.id)">
+                  Confirm Attendance
+                </button>
+              </div>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <button class="btn btn-sm btn-danger" (click)="cancelAttendance(data.id)">
+                Cancel Attendance
+              </button>
+            </ng-template>
+
+            <!-- icon container -->
+            <div class="iconinfo" *ngIf="data.link">
+              <mat-icon>link</mat-icon>
+              <span>{{ data.link }}</span>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- mat divider -->
+      </div>
+      <!-------------------------------------------------------------------------------------------------->
+    </div>
+  </div>
+
+</div>

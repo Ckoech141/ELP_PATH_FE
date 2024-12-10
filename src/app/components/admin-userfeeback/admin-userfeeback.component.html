@@ -1,0 +1,55 @@
+<div class="container">
+  <!-- ... other code ... -->
+  <div class="container-fluid">
+    <!-- ... other code ... -->
+
+    <div *ngIf="isLoading" class="d-flex justify-content-center pt-5"> 
+      <div class="spinner-grow text-secondary" role="status">
+      </div>
+      <div class="spinner-grow text-primary" role="status">
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+      </div>
+      <div id="loader-txt">
+          <h4>Loading...</h4>
+      </div> 
+    </div>
+
+    <div class="mat-accordion card " *ngFor="let item of feedback">
+      <div class="card m-3" style="max-width: 80%;">
+        <div class="row no-gutters">
+          <div class="col-md-4 p-3">
+            <h5 class="card-title">
+              <span class="testimonial-name">{{item.users.firstName + ' '+ item.users.lastName}}</span>              
+            </h5>
+            <span class="testimonial-name">{{item.users.email}}</span>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title">Message</h5>
+              <p class="par">
+                <i class="fa fa-quote-left quote-icon"></i>
+                {{item.message}}
+                <i class="fa fa-quote-right quote-icon"></i>
+              </p>
+              <span>updated at:</span>
+              <p class="card-text"><small class="text-muted">{{item.date}}</small></p>
+              <mat-panel-description class="col-md-1">
+                <!-- Add the delete button here -->
+              
+                <button mat-icon-button color="warn" (click)="deleteFeedback(item.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button class="repost"  mat-icon-button (click)="onRepostClick()">
+                  <mat-icon>content_copy</mat-icon>
+                </button>
+              </mat-panel-description>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>

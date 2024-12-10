@@ -1,0 +1,53 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form #bio="ngForm" class="bio-form" (ngSubmit)="submit()">
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Bio<span style="color: red;">*</span></label>
+          <!-- input -->
+
+          <textarea
+          name="description"
+          id=""
+          cols="5"
+          rows="10"
+          (input)="validateMessage()"
+          placeholder="About yourself.."
+          [(ngModel)]="description"
+          required
+          minlength="200"
+          maxlength="800"
+          #bioData="ngModel"
+        ></textarea>
+        </div>
+        <div class="count">
+          <small *ngIf="description.length < minLength">Minimum {{minLength}} characters required</small>
+          <small *ngIf="description.length >= maxLength">Maximum {{maxLength}} characters exceeded</small>
+        </div>
+        
+        <p *ngIf="bioData.invalid && bioData.touched">
+          <small>The Bio Data is a required.</small>
+        </p>
+      
+
+        <div class="save-button">
+          <ng-container *ngIf="!isUpdating; else elseTemplate">
+            <button id="submit" type="submit" (keydown.enter)="(submit)" [disabled]="bio.invalid || description.length < minLength || description.length > maxLength">Add Bio</button>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <mat-spinner id="sending" ></mat-spinner>
+          </ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

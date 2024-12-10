@@ -1,0 +1,5 @@
+/*
+ * Public API Surface of ngx-mat-intl-tel-input
+ */
+export * from './lib/ngx-mat-intl-tel-input.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL25neC1tYXQtaW50bC10ZWwtaW5wdXQvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLHdDQUF3QyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIG5neC1tYXQtaW50bC10ZWwtaW5wdXRcclxuICovXHJcblxyXG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtbWF0LWludGwtdGVsLWlucHV0LmNvbXBvbmVudCc7XHJcbiJdfQ==

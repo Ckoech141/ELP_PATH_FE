@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="buttons" *ngIf="!viewer">
+    <button
+      class="edit"
+      matTooltip="{{ editAdd === 'add' ? 'Add' : 'Add' }}"
+      matTooltipPosition="left"
+      matTooltipClass="tooltip"
+      (click)="bformDialog()"
+    >
+      <mat-icon>{{ editAdd == 'add' ? 'add' : 'create' }}</mat-icon>
+      {{ editAdd }}
+    </button>
+  </div>
+
+  <div class="container">
+    <mat-card-content class="bio-info">
+      {{ biodata ? biodata : "Kindly update your bio details" }}
+    </mat-card-content>
+  </div>
+</div>

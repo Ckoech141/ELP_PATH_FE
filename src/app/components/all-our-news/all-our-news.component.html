@@ -1,0 +1,44 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo navbar-brand">
+      <img src="/assets/images/bank-logo.png" class="img_logo" alt="" />
+    </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+            <a class="item-nav-home " href="">Home</a>
+            <a class="item-nav-contact" href="">Contact</a>
+        </div>
+        <div class="d-flex auth">
+           <!-- <a href="" routerLink="/interns-2024" style="margin-right: 1.3em;" class="login">ELP Interns</a> -->
+             <a href="" routerLink="/login" class="login">Login</a>
+        </div>
+
+      </div>
+  </nav>
+    </div>
+    
+    <div>
+      <div class="header">
+        <h1 style="margin-top: 80px;margin-bottom: 20px;">Welcome to our Latest News and Informative updates</h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 mb-5"  *ngFor = "let news of allNews">
+            <div class="card" style="height: 50vh;">
+              <div class="card-body">
+                <h5 class="card-title">{{news.title.slice(0,35)}}...</h5>
+                <img [src]="news.image" alt="">
+                <p class="card-text">{{news.message.slice(0, 185)}}..</p>
+                <a class="read-more-btn"[routerLink]="['/news-read-more']" [queryParams]="{item: news.id}">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+    <app-footer></app-footer>
+         
+

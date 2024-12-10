@@ -1,0 +1,155 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: whitesmoke;
+  box-shadow: 0 4px 8px rgb(230,173,94);
+}
+.apColor{
+  color:rgb(163, 42, 41);
+  background-color:rgb(230,173,94);
+  font-weight: bold;
+}
+.image-header {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+mat-icon{
+  color: rgb(230,173,94);
+}
+.image-header img{
+  height: 100px;
+  width: 100px;
+}
+.login-containter {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.login-header {
+  display: flex;
+  width: 100%;
+  color: #a32a29;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  justify-content: center;
+  margin-top: 50%;
+}
+
+.login-form {
+  margin-top: 10%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .form-field {
+    width: 100%;
+    input {
+      width: 100%;
+      height: 40px;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      // background: #fff;
+    }
+    input::placeholder {
+      color: #392e2d;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      padding-left: 10px;
+    }
+  }
+
+  .login-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 10px;
+  }
+  .reset {
+    display: flex;
+    padding: 10px;
+    color: #a32a29;
+    font-size: 10px;
+
+    
+  }
+}
+.reseta {
+  font-weight: bold;
+  color: #a32a29;
+  text-decoration: none;
+
+}
+.reseta:hover{
+  color:black;
+  transform: scale(1);
+}
+.have-account-text {
+  P {
+    color: #a32a29;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: default;
+    a {
+      cursor: default;
+      font-weight: 400;
+      font-size: 14px;
+      color: #a32a29;
+    }
+    a:hover {
+      translate: translateY(-5px);
+    }
+  }
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+mat-form-field{
+  background: none !important;
+}
+
+.input-size {
+  height: 20px;
+}
+::ng-deep
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+  .mat-mdc-form-field-infix {
+  max-height: 45px !important;
+}
+.error-message {
+  p {
+    color: red;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+}
+
+// .mat-mdc-form-field-infix {
+//   min-height: 45px !important;
+// }
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">  
+    <button  (click)="closeDialog()" ><mat-icon>clear</mat-icon></button>
+    <ng-container *ngFor="let notification of notificationData" >
+      <div class="row me-10 justify-content-center" style="text-align: center;" >
+        <div class="col-md-2 d-flex justify-content-center align-items-center">        
+          <img src="../../../assets/images/Notification icon.png" alt="notification" style="width: 100px; border-radius: 50%;">
+        </div>
+      
+        <div class="col-md-7">
+          <p>
+            <strong>Event name: </strong>
+            <span> {{notification.events.eventName}} </span>
+            <strong>Organized by: </strong>
+            <span> {{ notification.events.organizer }} </span>
+            <strong>At:</strong>
+            <span> {{ notification.events.location }} </span>
+          
+          
+          </p>
+          <span class="position-absolute  translate-middle p-2 bg-info border border-light rounded-circle" style="margin-left: 35%;" *ngIf="hidden" (click)="onDisappear()">
+          </span>
+        
+          <p> {{ notification.events.eventDescription }} </p>
+          <p style="background-color: rgb(177, 62, 33); color: white;">
+            <strong>Date: </strong>
+            <span>{{ notification.events.eventDate | date }}</span>
+          </p>
+        </div>
+        <hr>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<!-- <div class="container">
+  <div class="row">  
+    <button  (click)="closeDialog()" ><mat-icon>clear</mat-icon></button>
+    <ng-container *ngFor="let notification of notificationData" >
+      <div class="row me-10 justify-content-center" style="text-align: center;" >
+        <div class="col-md-2 d-flex justify-content-center align-items-center">        
+          <img src="../../../assets/images/Notification icon.png" alt="notification" style="width: 100px; border-radius: 50%;">
+        </div>
+      
+     
+        <hr>
+      </div>
+    </ng-container>
+  </div>
+</div> -->
+

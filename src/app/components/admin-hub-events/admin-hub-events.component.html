@@ -1,0 +1,65 @@
+<div class="container">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <div *ngIf="!isLoading">
+    <h3 class="mt-3" *ngIf="eventsData?.length == 0">No Events Found</h3>
+  </div>
+  <div class="main-container" *ngFor="let data of eventsData">
+    <!-- sub main container -->
+    <div class="submain-container">
+      <div class="content-container">
+        <!-- row1 -->
+        <div class="details">
+          <!-- title -->
+          <div class="title">
+            <p>Event Description</p>
+          </div>
+          <!-- description -->
+          <div class="description">
+            <p>
+              {{ data.eventDescription }}
+            </p>
+          </div>
+        </div>
+
+        <div class="image-gallery d-flex align-items-center justify-content-center" *ngFor="let item of data.eventImages">
+          <div *ngFor="let image of data.eventImages; let isLast = last" class="image-wrapper">
+            <img [src]="item" alt="Feed Image">            
+          </div>
+        </div>
+        <!-- row 2 -->
+        <div class="iconimage">
+          <!-- icon container -->
+          <div class="iconinfo">
+            <mat-icon>event</mat-icon>
+            <span>{{ data.eventDate | date }}</span>
+          </div>
+          <!-- icon container -->
+          <div class="iconinfo">
+            <mat-icon>groups_outline</mat-icon>
+            <span>{{ data.organizer }}</span>
+          </div>
+          <!-- icon container -->
+          <div class="iconinfo">
+            <mat-icon>schedule</mat-icon>
+            <span>{{ data.eventDate | date : "shortTime" }}</span>
+          </div>
+          <!-- icon container -->
+          <div class="iconinfo" *ngIf="data.location">
+            <mat-icon>location_on</mat-icon>
+            <span>{{ data.location }}</span>
+          </div>
+          <!-- icon container -->
+          <div class="iconinfo" *ngIf="data.eventLink">
+            <mat-icon>link</mat-icon>
+            <span>{{ data.eventLink }}</span>
+          </div>
+        </div>
+
+        <!-- row3 -->
+
+      </div>
+      <!-- mat divider -->
+    </div>
+    
+  </div>
+</div>

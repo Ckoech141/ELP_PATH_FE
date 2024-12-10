@@ -1,0 +1,35 @@
+<!-- Events Report -->
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Events Report</h5>
+      </mat-panel-title> 
+    </mat-expansion-panel-header>
+<form [formGroup]="DateForm">
+  <mat-form-field color="accent">
+    <mat-label>Select Time Range</mat-label>
+    <input matInput [matDatepicker]="picker3" formControlName="dateFrom">
+    <mat-hint>Date From</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field color="accent">
+    <mat-label>Select Time Range</mat-label>
+    <input matInput [matDatepicker]="picker4" formControlName="dateTo">
+    <mat-hint>Date To</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+    <mat-datepicker #picker4 color="primary"></mat-datepicker>
+  </mat-form-field>
+
+  <button class="info" type="submit" mat-fab extended color="primary" [disabled]="loading" (click)="pullEvents()">
+    <span *ngIf="!loading">Download Report</span>
+    <div *ngIf="loading" class="spinner">
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    </div>
+  </button>
+  </form> 
+</mat-expansion-panel>
+</mat-accordion>

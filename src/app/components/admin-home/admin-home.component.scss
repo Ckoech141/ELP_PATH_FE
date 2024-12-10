@@ -1,0 +1,52 @@
+.all-content {
+  overflow: none;
+  margin-top: 4px;
+  width: 100%;
+  background-color: 
+  rgb(242, 241, 241);
+}
+.navbar{
+  position: fixed;
+}
+
+mat-sidenav{
+  top: 0;
+  width: 13.5rem;
+  border-right: none;
+  color: #f7f7f7;
+  text-align: center;
+  
+
+  .sidenav-header {
+    border-bottom: 1px solid rgb(240, 251, 255);
+
+    // img {
+    //   width: 80%;
+    // }
+  }
+}
+
+.mat-sidenav-container {
+  height: 100vh;
+  width: 100%;
+}
+img{
+  height:10vh;
+  width: 50%;
+  background: rgb(255, 255, 255);
+  margin-bottom: 3px;
+}
+
+.rounded{
+  border-radius: 50%;
+  margin: 1rem 1.2rem;
+  padding: 5px;
+}
+.btn-group{
+  margin-top: 1rem;
+  background-color: transparent;
+  justify-content: space-around;
+}
+.sideNav{
+  overflow: hidden;
+}

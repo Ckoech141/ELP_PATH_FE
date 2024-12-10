@@ -1,0 +1,54 @@
+.main-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    // align-items: center;
+    max-width: 800px;
+    margin-top: 10px;
+    margin: 10px auto;
+    // height: 100vh;
+}
+.heading {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.footer {
+    text-align: center;
+}
+.card {
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+.form-field {
+    padding-right: 15px;
+}
+.form-control:focus {
+    outline: 2px solid crimson;
+    box-shadow: none
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.submit-btn {
+    width: 50%;
+    background-color: #ad3128;
+}
+
+.logo {
+    width: 48px;
+    margin-right: 10px;
+}
+
+.form-check-input:checked {
+    background-color: #ad3128;
+}

@@ -1,0 +1,33 @@
+<div class="container mb-2">
+  <div class="content-container">
+    <div class="details w-100">
+      <div class="title w-100">
+        <h5>Upcoming Events</h5>
+      </div>
+      <div class="numbers">
+        <p>{{ eventsCount }} Events</p>
+      </div>
+
+      <div class="event-list">
+        <ul *ngIf="events">
+          <div  *ngFor="let event of events">
+            <li  (click)="viewEventInfor(event.id)">
+              {{ event.eventName }} - {{ event.eventDate | date: 'mediumDate' }}
+            </li>
+          </div>
+   
+        </ul>
+        <p *ngIf="!events && !error">Loading Events...</p>
+        <p *ngIf="error"> {{ error }}</p>
+      </div>
+
+      <!-- <div class="date">
+        <p>{{ currentDate | date: "fullDate" }}</p>
+      </div>
+    </div>
+
+    <div class="icon-image">
+      <mat-icon>rocket_launch</mat-icon>
+    </div> -->
+  </div>
+</div>

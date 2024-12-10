@@ -1,0 +1,50 @@
+.whyAre{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.details{
+  font-size: 12px;
+}
+button{
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: white;
+  //color: rgb(161, 42, 41);
+  box-shadow: 0px 4px 8px rgb(230,173,94);
+}
+.backImage{
+  // <img src="../../../assets/images/nojob.png" alt="">
+  width: 50%;
+  height: 450px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgb(163, 42, 41);
+  background-image:url("../../../assets/images/nojobs.png") ;
+  background-size: contain;
+
+}
+.myCard{
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgb(230,173,94);
+}
+mat-icon{
+  color: rgb(230,173,94);
+  font-size: 20px;
+}
+.myButton{
+  width: 48%;
+}
+.second{
+  width: 98%;
+  border-radius: 5px;
+  //box-shadow: 0 0 0 20px white;
+  box-shadow: 0 4px 8px rgb(163, 42, 41);
+  //box-shadow: 0px 4px 8px rgb(230,173,94);
+
+
+}
+.divider{
+  width: 100%;
+}

@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search">
+<ul>
+  <li>
+        <!-- Scholars Report -->
+        <div>
+          <app-admin-scholars-report></app-admin-scholars-report>
+        </div>
+        
+          <!-- Visible separator -->
+          <!-- <hr class="my-4"> -->
+  </li>
+    
+  <li>
+     <!-- Users Report -->
+     <div>
+      <app-admin-users-report></app-admin-users-report>
+    </div>
+  
+    <!-- Visible separator -->
+    <!-- <hr class="my-4"> -->
+  </li>
+ 
+  <li>
+     <!-- Hubs Report -->
+     <app-admin-hub-report></app-admin-hub-report>
+  
+     <!-- Visible separator -->
+     <!-- <hr class="my-4"> -->
+  </li>
+ 
+  <li>
+     <!-- Job Opportunities Report -->
+     <div>
+      <app-admin-job-opportunities-report></app-admin-job-opportunities-report>
+    </div>
+    <!-- Visible separator -->
+    <!-- <hr class="my-4"> -->
+  </li>
+ 
+  <li>
+     <!-- Events Report -->
+   <div>
+    <app-admin-events-report></app-admin-events-report>
+   </div>
+  
+     <!-- Visible separator -->
+     <!-- <hr class="my-4"> -->
+  </li>
+ <li>
+    <!-- Chapters Report -->
+    <div>
+      <app-admin-chapter-report></app-admin-chapter-report>
+     </div>
+ </li>
+</ul>
+
+</div>

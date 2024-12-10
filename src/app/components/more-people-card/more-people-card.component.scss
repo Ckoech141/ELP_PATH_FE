@@ -1,0 +1,109 @@
+a {
+  text-decoration: none;
+}
+.p-2 {
+  background-color: rgb(251, 251, 251);
+  border-radius: 6px;
+ 
+  
+
+  //border:0.5px solid rgb(182, 177, 177);
+ 
+}
+
+.add-people-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.add-people-header span {
+  color: #171717;
+  font-size: 16px;
+  font-weight: 500;
+}
+.add-people {
+  width: 100%;
+  padding: 10px 0px;
+  border-radius: 10px;
+}
+.add-people:hover {
+  transform: translateY(-2px);
+  opacity: 0.5;
+  cursor: default;
+}
+.add-people-card {
+  padding-left: 10px;
+  display: flex;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: 10px;
+}
+.add-people-card-profile-img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  //border: 1px solid rgb(183, 183, 183);
+  img {
+    border-radius: 50%;
+ 
+    height: 40px;
+    width: 40px;
+  }
+  .mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: rgb(34, 34, 33);
+ 
+
+  }
+}
+.add-people-card-info {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.add-people-card-info-name span {
+  color: #282828;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+
+.add-people-card-info-profession span {
+  color: #212121;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+.matdivider {
+  margin-top: 10px;
+  color: rgb(161, 42, 41);
+
+}
+
+.more-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(161, 42, 41);
+  font-size: 13px;
+  padding: 3% 0px;
+  flex-wrap: nowrap;
+}
+.more-people:hover {
+  transform: translateY(-2px);
+}
+.profile-border{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border:1px solid rgb(105, 105, 105);
+}

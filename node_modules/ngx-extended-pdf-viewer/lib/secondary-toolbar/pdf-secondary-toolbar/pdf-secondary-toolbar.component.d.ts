@@ -1,0 +1,33 @@
+import { AfterViewInit, ElementRef, EventEmitter, OnChanges, OnDestroy, SimpleChanges, TemplateRef } from '@angular/core';
+import { PdfShyButtonService } from '../../toolbar/pdf-shy-button/pdf-shy-button-service';
+import { PDFNotificationService } from './../../pdf-notification-service';
+import { NgxExtendedPdfViewerService } from '../../ngx-extended-pdf-viewer.service';
+import * as i0 from "@angular/core";
+export declare class PdfSecondaryToolbarComponent implements OnChanges, AfterViewInit, OnDestroy {
+    private element;
+    notificationService: PDFNotificationService;
+    private platformId;
+    pdfShyButtonService: PdfShyButtonService;
+    private ngxExtendedPdfViewerService;
+    customSecondaryToolbar: TemplateRef<any> | undefined;
+    secondaryToolbarTop: any;
+    mobileFriendlyZoomScale: number;
+    localizationInitialized: boolean;
+    spreadChange: EventEmitter<"off" | "even" | "odd">;
+    disablePreviousPage: boolean;
+    disableNextPage: boolean;
+    private classMutationObserver;
+    constructor(element: ElementRef, notificationService: PDFNotificationService, platformId: Object, pdfShyButtonService: PdfShyButtonService, ngxExtendedPdfViewerService: NgxExtendedPdfViewerService);
+    onPdfJsInit(): void;
+    updateUIState(): void;
+    onSpreadChange(newSpread: 'off' | 'odd' | 'even'): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    onResize(): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    checkVisibility(): void;
+    private checkVisibilityRecursively;
+    onClick(htmlevent: Event, action: undefined | (() => void), eventBusName?: string, closeOnClick?: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PdfSecondaryToolbarComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PdfSecondaryToolbarComponent, "pdf-secondary-toolbar", never, { "customSecondaryToolbar": "customSecondaryToolbar"; "secondaryToolbarTop": "secondaryToolbarTop"; "mobileFriendlyZoomScale": "mobileFriendlyZoomScale"; "localizationInitialized": "localizationInitialized"; }, { "spreadChange": "spreadChange"; }, never, never>;
+}

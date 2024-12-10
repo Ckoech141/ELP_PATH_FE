@@ -1,0 +1,10 @@
+<div class="card">
+
+    <h5 class="card-header">Title:{{newsContent?.title}}</h5>
+    <img class="card-img-top" [src]="newsContent.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Message</h5>
+      <p class="card-text">{{newsContent?.message}}</p>
+      <button class="btn btn-danger" (click)="closeNewsDialog()">close</button>
+    </div>
+  </div>

@@ -1,0 +1,47 @@
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="logo navbar-brand">
+        <img src="/assets/images/bank-logo.png" class="img_logo" alt="" />
+      </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <div class="navbar-nav me-auto mb-2 mb-lg-0">
+              <a class="item-nav-home " href="">Home</a>
+              <a class="item-nav-contact" href="">Contact</a>
+          </div>
+          <div class="d-flex auth">
+             <!-- <a href="" routerLink="/interns-2024" style="margin-right: 1.3em;" class="login">ELP Interns</a> -->
+               <a href="" routerLink="/login" class="login">Login</a>
+          </div>
+  
+        </div>
+    </nav>
+      </div>
+
+
+      <div>
+          <div class="header">
+        <h1 style="margin-top: 80px;margin-bottom: 20px;">Enjoy watching our Inspiring stories  </h1>
+          </div>
+          <div class="row p-4 justify-content-around">
+            <div class="col-lg-3 mb-3" *ngFor="let spot of spotlight">
+              <div class="spotOwner d-flex flex-column align-items-center border rounded p-3">
+                <h5 class="my-3 text-center" style="font-weight: bold; height: 10vh;">{{spot.title}}</h5>
+                <ng-container *ngIf="spot.videoUrl; else elsetemplate">
+                  <iframe [src]="spot.videoUrl" allow='autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture'
+                          allowfullscreen></iframe>
+                </ng-container>
+                <p></p>
+                <ng-template #elsetemplate>
+                  <img src="{{spot.image}}" alt="" srcset="" style="border-radius: 10px; width: 100%; height: 20vh;">
+                </ng-template>
+                <p class="text-center">{{spot.content.slice(0, 100)}}</p>
+              </div>
+            </div>
+          </div>
+          
+          
+
+      </div>

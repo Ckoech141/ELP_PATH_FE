@@ -1,0 +1,155 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="w-100 d-flex justify-content-between align-items-center myCard py-3 my-3">
+        <div class="head d-flex align-items-center ms-3">
+          <mat-icon>event</mat-icon> <h6 class="ms-1">Job opportunities</h6>
+
+        </div>
+        <div class="buttons me-3">
+          <button class="btn me-2" (click)="showPermanentJobs()">Permanent</button>
+          <button class="btn" (click) = "showTemporaryJobs()">Temporary</button>
+        </div>
+      </div>
+      
+
+<!-- 
+      <table mat-table [dataSource]="dataSource" 
+      *ngIf = "number > 0; else noJobs" 
+      >
+
+        <ng-container class="matrix" matColumnDef="jobs">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <p>{{message}}</p>
+              <input class="form-control w-50" (keyup)="searchJob($event)" placeholder="Search" >
+              <p>Found {{number}} opportunities</p>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let job;let i = index" >
+            <button
+      class="w-100 mt-4"
+      (click) = "showJob(job)" >
+        <div class="jobCard d-flex align-items-center justify-content-between">
+          <div class="w-50 d-flex flex-column align-items-center justify-content-between" style="background-color: white;" *ngIf="i % 2 == 0;else odd">
+            <img [src]="job.jobPoster" class="whyAre" onerror="this.src=`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAJFBMVEXQ0NDw8PDj4+Pc3NzU1NTn5+fz8/Pt7e3f39/X19fq6urNzc0EuZL3AAADYElEQVR4nO2bCZajIBRFC0EFs//9tomWpZFRUXj2uxvIv+cPMuXnhxBCCCGEEEIIIYQQQgghhBBCCCHkSShjpNZaGlU6ktMY3faieyP6VpaO5hRKjyZiZvQZgHXkILZ0XQtabGNaOvFN12PayJ3Jx2YwpQM7gLTkZbLBy4357pc/4PpGNU4XIdBmmuzdLmiF5k3MmJpX6QBTMIO9+3+7BkrGPpYXsD422psYrBGgmoCMBqoz1QZkGsqU4VkyT+qZ8DRDkgl9Z6C2AZ4185uhdHxJBJoGqmX8q2YBtmoeh7MvMaWjS2V3MvMH3E7TM9CwRtmEY3/W9Ugr5gWlbS5Qq/8Vo833gO4Qa2zGtNus4M2xDaYd+m66BRB9Uzqa0yipm7ZtGg3aLIQQQgghhBBC/hfwThLdSMBzUQdK9qLFPbXaML3Le4jN/MbwETbLu7wH9M3qjSG8jV5fyoFX2tfdArLNa3dPgmvzstzHwfaN7f4KNTdWF1Ab7XpcgGez733cvnl5H32A2ThrDLDSAi5INr5+mYH5n5G/Xxab0mHGEawxoNyEa2y2AXjIFusCYGNbW3psSofrJar3VzZVT4H9y6i6Kk028b+X6nK3jey7aJu4mVzOxrzPViJtXP/1DNjc9r0xU93E2Fj/TxzFTTbytwfCNupYXu7LzSq+oM1xl3tsNt+MgM0ZlztszHbOem3Oubxtrt3fmO9vhtvmRL8sXGpjic9lk8PlUhvrGsthk8XlQhvHetFqk8nlMhtnfBabbC4X2Xji29lkdLnExvPPoJ1NVpcLbAL7q41NZpfsNsG94somu0tmm4j4FpsLXLLaRO3hZ5tLXDLaeHt/a/M6vH+5ySb6bKVRSWdKJWwS9vDNkf3+nTZJZ15XumSwieyXezhpU5XLSZu0c9UbOLGTvuibcYbDNhW6HLaprF9+OXRyW12/zBw5gTI11tiH9FP1KvtlJjU3Nbuk2sjk+6F7Sbn33J1bVke8jelqdxltHlJjE09yiZOpv18molwA+uXDc2pMxMig1JiIkMHJS1gGKC9BGSiXgEyt+xcHT3LxytS95rfgcykdWzIPyotHBq1f3jzJxSUD6eKQwXSxy4C6WGUqPYMNY80L3Eye2bso3aBikcHFMZoJIYQQQgghpHr+AZZ6NU6cNizeAAAAAElFTkSuQmCC`"/>
+            <div class="details">
+              <p class="text-start m-0">Organization: {{job.organization}}</p>
+              <p class="text-start m-0">Education level: {{job.educationLevel}}</p>
+              <p class="text-start m-0">Job type: {{job.jobType}}</p>
+              <p class="text-start">How to appply: <span style="color:rgb(163, 42, 41);"><a href={{job.howToApply}}>Apply job</a></span></p>
+
+            </div>
+          </div>
+          <ng-template #odd>
+            <div class="w-50 d-flex flex-column align-items-center justify-content-between" style="background-color: white;">
+              <img [src]="job.jobPoster" class="whyAre" onerror="this.src=`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAJFBMVEXQ0NDw8PDj4+Pc3NzU1NTn5+fz8/Pt7e3f39/X19fq6urNzc0EuZL3AAADYElEQVR4nO2bCZajIBRFC0EFs//9tomWpZFRUXj2uxvIv+cPMuXnhxBCCCGEEEIIIYQQQgghhBBCCCHkSShjpNZaGlU6ktMY3faieyP6VpaO5hRKjyZiZvQZgHXkILZ0XQtabGNaOvFN12PayJ3Jx2YwpQM7gLTkZbLBy4357pc/4PpGNU4XIdBmmuzdLmiF5k3MmJpX6QBTMIO9+3+7BkrGPpYXsD422psYrBGgmoCMBqoz1QZkGsqU4VkyT+qZ8DRDkgl9Z6C2AZ4185uhdHxJBJoGqmX8q2YBtmoeh7MvMaWjS2V3MvMH3E7TM9CwRtmEY3/W9Ugr5gWlbS5Qq/8Vo833gO4Qa2zGtNus4M2xDaYd+m66BRB9Uzqa0yipm7ZtGg3aLIQQQgghhBBC/hfwThLdSMBzUQdK9qLFPbXaML3Le4jN/MbwETbLu7wH9M3qjSG8jV5fyoFX2tfdArLNa3dPgmvzstzHwfaN7f4KNTdWF1Ab7XpcgGez733cvnl5H32A2ThrDLDSAi5INr5+mYH5n5G/Xxab0mHGEawxoNyEa2y2AXjIFusCYGNbW3psSofrJar3VzZVT4H9y6i6Kk028b+X6nK3jey7aJu4mVzOxrzPViJtXP/1DNjc9r0xU93E2Fj/TxzFTTbytwfCNupYXu7LzSq+oM1xl3tsNt+MgM0ZlztszHbOem3Oubxtrt3fmO9vhtvmRL8sXGpjic9lk8PlUhvrGsthk8XlQhvHetFqk8nlMhtnfBabbC4X2Xji29lkdLnExvPPoJ1NVpcLbAL7q41NZpfsNsG94somu0tmm4j4FpsLXLLaRO3hZ5tLXDLaeHt/a/M6vH+5ySb6bKVRSWdKJWwS9vDNkf3+nTZJZ15XumSwieyXezhpU5XLSZu0c9UbOLGTvuibcYbDNhW6HLaprF9+OXRyW12/zBw5gTI11tiH9FP1KvtlJjU3Nbuk2sjk+6F7Sbn33J1bVke8jelqdxltHlJjE09yiZOpv18molwA+uXDc2pMxMig1JiIkMHJS1gGKC9BGSiXgEyt+xcHT3LxytS95rfgcykdWzIPyotHBq1f3jzJxSUD6eKQwXSxy4C6WGUqPYMNY80L3Eye2bso3aBikcHFMZoJIYQQQgghpHr+AZZ6NU6cNizeAAAAAElFTkSuQmCC`"/>
+              <div class="details">
+                <p class="text-start m-0">Organization: {{job.organization}}</p>
+                <p class="text-start m-0">Education level: {{job.educationLevel}}</p>
+                <p class="text-start m-0">Job type: {{job.jobType}}</p>
+                <p class="text-start">How to appply: <span style="color:rgb(163, 42, 41);"><a href={{job.howToApply}}>Apply job</a></span></p>
+              </div>
+            </div>
+          </ng-template>
+          <div class="jobBody w-50">
+            <h5 class="text-start" style="color:rgb(163, 42, 41);"><b>{{job.jobTitle}}</b></h5>
+            <p class="text-start text-justify">{{job.jobDescription}}</p>
+          </div>
+         
+        </div>
+            </button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> -->
+      
+     
+
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="row second">
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div class="col-lg-3">
+          <h6 class="m-3" style="color:rgb(163, 42, 41);">{{message}}</h6>
+        </div>
+        <div class="col-lg-5">
+          <input class="form-control w-100 my-3" (keyup)="searchJob($event)" placeholder="Search" >
+        </div>
+        <div class="col-lg-4">
+          <p class="m-3">Found {{number}} opportunities</p>
+        </div>
+      </div>
+      <div class="divider">
+        <mat-divider></mat-divider>
+      </div>
+        <div class="col-sm-12 d-flex flex-wrap align-items-center" *ngIf = "number > 0; else noJobs">
+          <button
+          *ngFor="let job of dataSource;let i = index"
+        class="myButton m-2"
+        (click) = "showJob(job)" >
+        <div class="w-100" *ngIf="i % 2 == 0;else odd">
+          <div class="jobCard d-flex align-items-center justify-content-between">
+            <div class="w-50 d-flex flex-column align-items-center justify-content-between" style="background-color: white;" >
+              <h6 class="text-center mt-1" style="color:rgb(163, 42, 41);"><b>{{job.organization}}</b></h6>
+  
+              <img [src]="job.jobPoster" class="whyAre" onerror="this.src=`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAJFBMVEXQ0NDw8PDj4+Pc3NzU1NTn5+fz8/Pt7e3f39/X19fq6urNzc0EuZL3AAADYElEQVR4nO2bCZajIBRFC0EFs//9tomWpZFRUXj2uxvIv+cPMuXnhxBCCCGEEEIIIYQQQgghhBBCCCHkSShjpNZaGlU6ktMY3faieyP6VpaO5hRKjyZiZvQZgHXkILZ0XQtabGNaOvFN12PayJ3Jx2YwpQM7gLTkZbLBy4357pc/4PpGNU4XIdBmmuzdLmiF5k3MmJpX6QBTMIO9+3+7BkrGPpYXsD422psYrBGgmoCMBqoz1QZkGsqU4VkyT+qZ8DRDkgl9Z6C2AZ4185uhdHxJBJoGqmX8q2YBtmoeh7MvMaWjS2V3MvMH3E7TM9CwRtmEY3/W9Ugr5gWlbS5Qq/8Vo833gO4Qa2zGtNus4M2xDaYd+m66BRB9Uzqa0yipm7ZtGg3aLIQQQgghhBBC/hfwThLdSMBzUQdK9qLFPbXaML3Le4jN/MbwETbLu7wH9M3qjSG8jV5fyoFX2tfdArLNa3dPgmvzstzHwfaN7f4KNTdWF1Ab7XpcgGez733cvnl5H32A2ThrDLDSAi5INr5+mYH5n5G/Xxab0mHGEawxoNyEa2y2AXjIFusCYGNbW3psSofrJar3VzZVT4H9y6i6Kk028b+X6nK3jey7aJu4mVzOxrzPViJtXP/1DNjc9r0xU93E2Fj/TxzFTTbytwfCNupYXu7LzSq+oM1xl3tsNt+MgM0ZlztszHbOem3Oubxtrt3fmO9vhtvmRL8sXGpjic9lk8PlUhvrGsthk8XlQhvHetFqk8nlMhtnfBabbC4X2Xji29lkdLnExvPPoJ1NVpcLbAL7q41NZpfsNsG94somu0tmm4j4FpsLXLLaRO3hZ5tLXDLaeHt/a/M6vH+5ySb6bKVRSWdKJWwS9vDNkf3+nTZJZ15XumSwieyXezhpU5XLSZu0c9UbOLGTvuibcYbDNhW6HLaprF9+OXRyW12/zBw5gTI11tiH9FP1KvtlJjU3Nbuk2sjk+6F7Sbn33J1bVke8jelqdxltHlJjE09yiZOpv18molwA+uXDc2pMxMig1JiIkMHJS1gGKC9BGSiXgEyt+xcHT3LxytS95rfgcykdWzIPyotHBq1f3jzJxSUD6eKQwXSxy4C6WGUqPYMNY80L3Eye2bso3aBikcHFMZoJIYQQQgghpHr+AZZ6NU6cNizeAAAAAElFTkSuQmCC`"/>
+              <div class="details mt-2">
+                <p class="text-start m-0">Education level: {{job.educationLevel}}</p>
+                <p class="text-start m-0">Job type: {{job.jobType}}</p>
+                <p class="text-start">How to appply: <span style="color:rgb(163, 42, 41);"><a href={{job.howToApply}}>Apply job</a></span></p>
+  
+              </div>
+            </div>
+            <div class="jobBody w-50 h-100">
+              <p class="text-center mt-3" style="color:rgb(163, 42, 41);">{{job.jobTitle}}</p>
+              <!-- <h4 class="text-start" style="color:rgb(163, 42, 41);">Job Description</h4> -->
+              <p class="text-start text-justify" style="font-size: 14px;">{{job.jobDescription.substring(0,130)}} <span style="color: rgb(163, 42, 41); font-size: 12px;">.....click to read more</span> </p>
+            </div>
+          </div>
+        </div>
+  
+          <ng-template #odd>
+            <div class="jobCard d-flex align-items-center justify-content-between">
+              <div class="jobBody w-50  h-100">
+                <p class="text-start mt-3 ms-4" style="color:rgb(163, 42, 41);">{{job.jobTitle}}</p>
+                <!-- <h4 class="text-start" style="color:rgb(163, 42, 41);">Job Description</h4> -->
+                <p class="text-start text-justify" style="font-size: 14px;">{{job.jobDescription.substring(0,130)}}<span style="color: rgb(163, 42, 41); font-size: 12px;">.....click to read more</span> </p>
+              </div>
+              <div class="w-50 d-flex flex-column align-items-center justify-content-between" style="background-color: white;">
+                <h6 class="text-center mt-1" style="color:rgb(163, 42, 41);"><b>{{job.organization}}</b></h6>
+                <img [src]="job.jobPoster" class="whyAre" onerror="this.src=`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAJFBMVEXQ0NDw8PDj4+Pc3NzU1NTn5+fz8/Pt7e3f39/X19fq6urNzc0EuZL3AAADYElEQVR4nO2bCZajIBRFC0EFs//9tomWpZFRUXj2uxvIv+cPMuXnhxBCCCGEEEIIIYQQQgghhBBCCCHkSShjpNZaGlU6ktMY3faieyP6VpaO5hRKjyZiZvQZgHXkILZ0XQtabGNaOvFN12PayJ3Jx2YwpQM7gLTkZbLBy4357pc/4PpGNU4XIdBmmuzdLmiF5k3MmJpX6QBTMIO9+3+7BkrGPpYXsD422psYrBGgmoCMBqoz1QZkGsqU4VkyT+qZ8DRDkgl9Z6C2AZ4185uhdHxJBJoGqmX8q2YBtmoeh7MvMaWjS2V3MvMH3E7TM9CwRtmEY3/W9Ugr5gWlbS5Qq/8Vo833gO4Qa2zGtNus4M2xDaYd+m66BRB9Uzqa0yipm7ZtGg3aLIQQQgghhBBC/hfwThLdSMBzUQdK9qLFPbXaML3Le4jN/MbwETbLu7wH9M3qjSG8jV5fyoFX2tfdArLNa3dPgmvzstzHwfaN7f4KNTdWF1Ab7XpcgGez733cvnl5H32A2ThrDLDSAi5INr5+mYH5n5G/Xxab0mHGEawxoNyEa2y2AXjIFusCYGNbW3psSofrJar3VzZVT4H9y6i6Kk028b+X6nK3jey7aJu4mVzOxrzPViJtXP/1DNjc9r0xU93E2Fj/TxzFTTbytwfCNupYXu7LzSq+oM1xl3tsNt+MgM0ZlztszHbOem3Oubxtrt3fmO9vhtvmRL8sXGpjic9lk8PlUhvrGsthk8XlQhvHetFqk8nlMhtnfBabbC4X2Xji29lkdLnExvPPoJ1NVpcLbAL7q41NZpfsNsG94somu0tmm4j4FpsLXLLaRO3hZ5tLXDLaeHt/a/M6vH+5ySb6bKVRSWdKJWwS9vDNkf3+nTZJZ15XumSwieyXezhpU5XLSZu0c9UbOLGTvuibcYbDNhW6HLaprF9+OXRyW12/zBw5gTI11tiH9FP1KvtlJjU3Nbuk2sjk+6F7Sbn33J1bVke8jelqdxltHlJjE09yiZOpv18molwA+uXDc2pMxMig1JiIkMHJS1gGKC9BGSiXgEyt+xcHT3LxytS95rfgcykdWzIPyotHBq1f3jzJxSUD6eKQwXSxy4C6WGUqPYMNY80L3Eye2bso3aBikcHFMZoJIYQQQgghpHr+AZZ6NU6cNizeAAAAAElFTkSuQmCC`"/>
+                <div class="details mt-2">
+                  <p class="text-start m-0">Education level: {{job.educationLevel}}</p>
+                  <p class="text-start m-0">Job type: {{job.jobType}}</p>
+                  <p class="text-start">How to appply: <span style="color:rgb(163, 42, 41);"><a href={{job.howToApply}}>Apply job</a></span></p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </button>
+      </div>
+        <ng-template #noJobs>
+          <div class="w-100 d-flex align-items-center justify-content-between">
+            <div class="w-50 d-flex flex-column align-items-center">
+              <h6 class="text-start w-75" style="color:rgb(163, 42, 41);">Oops {{userInfo.firstName}}, no available jobs</h6>
+              <div class="w-75 text-start"  style="font-size: 14px;">
+                <p class="mt-1 mb-0">Job opportunities will help you: </p>
+                <ul>
+                  <li>Improve your career growth</li>
+                  <li>Help you meet new people</li>
+                  <li>Learn different ways of handling issues from others</li>
+                </ul>
+              </div>
+            </div>
+            <div class="backImage my-2"></div>
+          </div>
+        </ng-template>
+    </div>
+  </div>
+</div>
+

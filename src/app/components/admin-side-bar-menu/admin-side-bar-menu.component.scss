@@ -1,0 +1,73 @@
+.side-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.side-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+  color: #ffffff;
+  width: 90%;
+  margin-left: 10%;
+  height: 10%;
+  background: transparent;
+  border: none;
+  padding: 15px 0px;
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    transition: margin-left 0.45s ease;
+    transition-duration: 0.45s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: margin-left;
+  }
+}
+.button-link:visited{
+  background-color: #833030;
+}
+
+.side-buttons:hover {
+  background-color: #833030;
+  color: #c1b8b8;
+  span {
+    margin-left: -3px;
+  }
+}
+.side-buttons:focus {
+  color: #fffefe;
+  span {
+    margin-left: 10px;
+  }
+}
+
+.mat-expansion-panel {
+  background-color: transparent;
+}
+.mat-expansion-panel-header-title {
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+::ng-deep .mat-expansion-indicator::after {
+  color: #757575;
+}
+
+.mat-expansion-panel-header-title:hover {
+  color: white;
+}

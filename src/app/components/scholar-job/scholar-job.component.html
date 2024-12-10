@@ -1,0 +1,67 @@
+<div class="container"  *ngIf="notApplied; else applied">
+    <div class="row my-3" *ngIf="bio; else showBio">
+        <div class="col-sm-12">
+            <img src="data.jobPoster" alt="">
+            <div class="details">
+                <h3 class="text-center">{{data.jobTitle}}</h3>
+                <p>Job type: {{data.jobType}} </p>
+                <p>Education level: {{data.educationLevel}}</p>
+                <p>Application deadline: {{data.applicationDeadLine}}</p>
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h6 class="text-start" > Job description</h6>
+            <p>{{data.jobDescription}}</p>
+        </div>
+        <div class="col-sm-12">
+            <h6 class="text-start" >Job qualifications</h6>
+            <ul>
+                <li *ngFor="let q of qualities">{{q}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <h5 class="text-start" >Job Responsibilities</h5>
+            <ul>
+                <li *ngFor="let r of responses">{{r}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <h6>How to apply</h6>
+            <p>{{data.howToApply}}</p>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-primary me-3" (click)="submitEasyApply(data.id)">Easy Apply</button>
+            <button class="btn btn-primary">Apply manually</button>
+        </div>
+        
+
+    </div>
+    <ng-template #showBio>
+        <div class="row">
+            <div class="col-sm-12 py-3">
+                <h3>Dear {{appUser.name}},</h3>
+                <p class="my-2">Please complete your user profile to continue..<br> Add the following:</p>
+                <ul>
+                    <li *ngFor="let err of userDataRequired"><a href="#">{{err}}</a></li>
+                </ul>
+                <button class="btn btn-primary" [routerLink]="'/user_profile'" (click)="close()">Update profile</button>
+            </div>
+        </div>
+</ng-template>
+</div>
+<ng-template #applied>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 py-3">
+                <h6>Dear {{appUser.name}},</h6>
+                <p class="text-center m-3">You have successfully applied for a {{data.jobTitle}} {{data.jobType}} position at {{data.organization}}. We will get back to you for more information.</p>
+                <img class="success" src="../../../assets/images/nojobs.png" alt="">
+                <div class="buttons">
+                    <button class="btn" (click)="close()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+

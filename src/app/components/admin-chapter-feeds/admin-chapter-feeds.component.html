@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+    <div *ngIf="!isLoading">
+      <h3 class="mt-3" *ngIf="feedsData?.length == 0">No Events Found</h3>
+    </div>
+    <div class="container" *ngIf="showWhat;">
+        <div class="row">
+            <div class="col-sm-12  mb-2 d-flex justify-content-center" *ngFor="let data of feedsData">
+                <div class="mainContent">
+                    <div class="top d-flex w-100 justify-content-between align-items-center">
+                        <div class="ms-3 d-flex">
+                            <mat-icon style="margin-right: 10px; color:rgb(230,173,94);">event</mat-icon>
+                            <h5 class="text-center">{{data.eventName}}</h5>
+                        </div>
+                        <div class="head d-flex justify-content-between align-items-center">
+                            <div class="head1">
+                                <p class="m-0 p-0">{{data.eventDate}}</p>
+                                <h6 clas="text-center">Venue: {{data.location}}</h6>
+    
+                            </div>
+                            <div class="chapter-profile-image m-3">
+                                <img *ngIf="imageUrl" [src]="imageUrl" />
+                                <mat-icon class="appColor" *ngIf="!imageUrl">person</mat-icon>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="image-gallery d-flex align-items-center justify-content-center" *ngFor="let item of data.eventImages">
+                        <div *ngFor="let image of data.eventImages; let isLast = last" class="image-wrapper">
+                          <img [src]="http.serverUrl+'images/'+item" alt="Feed Image">            
+                        </div>
+                      </div>
+                    <p>{{data.eventDescription}}</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

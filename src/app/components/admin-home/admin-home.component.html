@@ -1,0 +1,40 @@
+<mat-sidenav-container >
+  <!-- sidenav #row1 -->
+
+  <mat-sidenav  class="{{bgColor}} sideNav" mode="side"  [opened]="!isShowing">
+    <!-- sidenav header -->
+
+    <div class="sidenav-header">
+      <a routerLink="dashboard" class="button-link">
+        <img src={{logoimg}} class="rounded-circle mt-3 p-2" alt="logo">  
+    </a>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" (click)="ChangeBgGreen()" class="rounded btn btn-success"></button>
+      <button type="button" (click)="ChangeBgInfo()"  class="rounded btn btn-info"></button>
+      <button type="button" (click)="ChangeBgDark()" class="rounded btn btn-dark"></button>
+      <button type="button" (click)="ChangeBgWarning()" class="rounded btn btn-warning"></button>
+      <button type="button" (click)="ChangeBgPri()" class="rounded btn btn-primary"></button>
+      <button type="button" (click)="ChangeBgSec()" class="rounded btn btn-secondary"></button>
+    </div>
+
+    <!-- sidenav buttons -->
+    <app-admin-side-bar-menu></app-admin-side-bar-menu>
+  </mat-sidenav>
+
+  <!-- Main Content #row2 /Graphs/tables etc. -->
+  <mat-sidenav-content mat-elevation-z9 >
+    <app-admin-navbar></app-admin-navbar>
+
+    <!-- main navbar -->
+
+    <!-- <p>
+          <mat-icon mat-button (click)="toggle()"> menu_open </mat-icon>
+        </p> -->
+
+    <div class="all-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

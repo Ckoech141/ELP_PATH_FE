@@ -1,0 +1,86 @@
+<div class="main-cont" [class.no-update]="userProfileData !== undefined">
+  <div class="feed-container" 
+       *ngFor="let data of feedsData; let i = index" 
+       [title]="(data.toxic || data.severeToxic || data.obscene || data.threat || data.insult || data.identityHate) ? 'This is a harmful post' : ''">
+    <div class="feed-header">
+      <div class="feed-header-profile">
+        <div class="feed-header-profile-image">
+          <img *ngIf="data.user?.profileImage" [src]="serverUrl+'images/' + data.user?.profileImage" alt="Profile Image"
+            onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScuQGyYbgV9HFyiunO9mF6_lnB6MYwcx6t3w&usqp=CAU'" />
+          <mat-icon *ngIf="!data.user.profileImage">person</mat-icon>
+        </div>
+        <div class="feed-title">
+          <div class="feed-header-profile-name">
+            <p class="p1">{{ data.user.firstName }} {{ data.user.lastName }}</p>
+            <p class="p2">{{ data.postDate | date : "fullDate" }}</p>
+          </div>
+          <div class="menu-icon">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon class="dots">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>share</mat-icon>
+                <span>Share</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feed-body">
+      <div class="feed-text">
+        <p [ngClass]="{'harmful': data.toxic || data.severeToxic || data.obscene || data.threat || data.insult || data.identityHate}">
+          {{ data.description }}
+        </p>
+      </div>
+      <ng-container *ngIf="data.images.length > 0; else elseTemplate">
+        <div class="image-gallery" [ngClass]="'images-' + data.images.length">
+          <div *ngFor="let image of data.visibleImages; let isLast = last" class="image-wrapper">
+            <img id="feedImg" [src]="http.serverUrl + 'images/' + image" alt="Feed Image">
+            <button *ngIf="isLast && data.images.length > (screenWidth > 600 ? 4 : 2)" (click)="toggleImages(i)"
+              class="overlay-button">
+              {{ expandedIndex === i ? 'Show Less' : 'Show More' }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <!-- Placeholder for no images -->
+      </ng-template>
+      <mat-divider></mat-divider>
+      <div class="feed-actions">
+          <button (click)="likeThisPost(data)" aria-label="Like this post">
+            <mat-icon class="text-primary">favorite</mat-icon>
+            <span>Like</span>
+          </button>
+          <button (click)="addComment(data)" aria-label="Comment on this post">
+            <mat-icon style="color: rgb(15, 103, 219);">chat</mat-icon>
+            <span>Comment</span>
+          </button>
+          <button mat-icon-button [matMenuTriggerFor]="shareMenu" aria-label="Share this post">
+            <mat-icon style="color: rgb(15, 103, 219);">share</mat-icon>
+            <span>Share</span>
+          </button>
+          <mat-menu #shareMenu="matMenu">
+            <button mat-menu-item (click)="openLinkedIn(data)">
+              <fa-icon [icon]="faLinkedin" style="color: rgb(15, 103, 219);"></fa-icon>
+              <span>LinkedIn</span>
+            </button>
+            <button mat-menu-item (click)="openFacebook(data)">
+              <fa-icon [icon]="faFacebook" style="color: rgb(15, 103, 219);"></fa-icon>
+              <span>Facebook</span>
+            </button>
+            <button mat-menu-item (click)="openWhatsApp(data)">
+              <fa-icon [icon]="faWhatsapp" style="color: rgb(37, 211, 102);"></fa-icon>
+              <span>WhatsApp</span>
+            </button>
+            <button mat-menu-item (click)="openTwitter(data)">
+              <fa-icon [icon]="faTwitter" style="color: rgb(15, 103, 219);"></fa-icon>
+              <span>Twitter</span>
+            </button>
+          </mat-menu>
+        </div>
+    </div>
+  </div>
+</div>

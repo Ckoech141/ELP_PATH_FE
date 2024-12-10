@@ -1,0 +1,163 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling on the entire page */
+}
+
+.all-content {
+  width: 100%;
+  margin-top: 2em;
+  padding-left: 2em;
+  overflow-y: hidden; /* Disable vertical scrolling */
+  height: calc(100% - 2em); /* Adjust based on your needs */
+  
+  /* Hide scrollbar for Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.content-container {
+  background: rgb(218, 218, 218);
+  overflow: hidden; /* Prevent scrolling */
+}
+
+mat-sidenav {
+  background-color: transparent;
+  top: 2em;
+  margin-left: 1.5em;
+  border: none;
+  width: 20%;
+  overflow-y: auto;
+    /* Hide scrollbar for Webkit browsers */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+mat-sidenav .sidenav-header {
+  border-bottom: 1px solid rgb(240, 251, 255);
+}
+
+.mat-sidenav-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+img {
+  height: 10vh;
+  width: 50%;
+  background: rgb(255, 255, 255);
+  margin-bottom: 3px;
+}
+
+.rounded {
+  border-radius: 50%;
+  margin: 1rem 1.2rem;
+  padding: 5px;
+}
+
+.btn-group {
+  margin-top: 1rem;
+  background-color: transparent;
+  justify-content: space-around;
+}
+
+.profile_card{
+  bottom: 55px;
+}
+
+.navbar {
+  z-index: 60;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  mat-sidenav {
+    width: 25%;
+  }
+
+  img {
+    width: 60%;
+  }
+  .all-content {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  mat-sidenav {
+    display: none;
+  }
+
+  img {
+    width: 70%;
+  }
+
+  .rounded {
+    margin: 0.5rem 0.6rem;
+  }
+
+  .all-content {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    display: none;
+  }
+
+  img {
+    width: 80%;
+  }
+
+  .rounded {
+    margin: 0.3rem 0.4rem;
+  }
+
+  .all-content {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  mat-sidenav {
+    display: none;
+    width: 50%;
+    margin-left: 0;
+  }
+
+  img {
+    width: 90%;
+  }
+
+  .rounded {
+    margin: 0.2rem 0.2rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .all-content {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+  }
+}

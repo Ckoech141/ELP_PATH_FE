@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  <div class="column1-container">
+    
+    <div class="activity-container d-flex justify-content-between mt-3 py-2 px-5">
+      <div class="d-flex align-items-center">
+        <span class="events">Events</span>
+        <button id="events-set" class="btn btn-sm" (click)="addEventDialog()">
+          <mat-icon>add-outline</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <app-admin-chapter-feeds></app-admin-chapter-feeds>
+    </div>
+  </div>
+  <!--column2-->
+
+  <div class="column2-container">
+    <!-- chapters profile -->
+    <app-admin-chapter-profile [chapterid]="chapterId"></app-admin-chapter-profile>
+  </div>
+</div>

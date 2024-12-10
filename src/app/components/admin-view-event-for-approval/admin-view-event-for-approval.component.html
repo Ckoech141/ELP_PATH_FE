@@ -1,0 +1,74 @@
+<div class="container-fluid" *ngIf="event; else elseBlock">
+    <div class="main-container">
+        <!-- sub main container -->
+        <div class="submain-container">
+            <div class="content-container">
+                <div class="details">
+                    <!-- title -->
+                    <div class="title b">
+                    <span>EventName:</span>{{ event.eventName}}
+                    </div>
+                    <!-- description -->
+                    <div class="description">
+                        <p>
+                        <span>Description:</span>{{event.eventDescription}}
+                        </p>
+                    </div>
+
+                </div>
+                <!-- row1 -->
+                <div class="image" *ngFor="let image of event.eventImages">
+                    <img [src]="http.serverUrl+'images/'+image" alt="" />
+                </div>
+
+                <!-- row 2 -->
+                <div class="iconimage">
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <mat-icon>event</mat-icon>
+                        <span>{{ event.eventDate | date }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <span>On</span>
+                        <mat-icon>groups_outline</mat-icon>
+                        <span>{{ event.organizer }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <mat-icon>schedule</mat-icon>
+                        <span>{{ event.eventDate | date : "shortTime" }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo" *ngIf="event.location">
+                        <mat-icon>location_on</mat-icon>
+                        <span>{{ event.location }}</span>
+                    </div>
+
+                    <!-- <div class="iconinfo">
+                        <button class="btn btn-primary" (click)="joinEvent(data)">join event</button>
+                    </div> -->
+                    <!-- icon container -->
+                    <div class="iconinfo" *ngIf="event.link">
+                        <mat-icon>link</mat-icon>
+                        <span>{{ event.link }}</span>
+                    </div>
+                </div>
+
+                <!-- row3 -->
+                
+            </div>
+            <!-- mat divider -->
+        </div>
+        <!-------------------------------------------------------------------------------------------------->
+    </div>
+</div>
+
+
+<ng-template class="container" #elseBlock>
+    <div class="row">
+        <div class="col-sm-12 py-5">
+            <h1 class="text-center">Ooooops, this chapter currently doesn't have any events.</h1>
+        </div>
+    </div>
+</ng-template>

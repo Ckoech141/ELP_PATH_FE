@@ -1,0 +1,258 @@
+<!-- <div class="p-3">
+    <div class="w-100">
+        <h5> <span style="color: rgb(163, 42,41); font-weight: bold;">Name:</span>Duncan Towwet Kipkemoi </h5>
+    </div>
+    <div class="d-flex justify-content-center w-100">
+        <img src="../../../assets/images/profile1.jpg" style="height: 100px; width: 100px; border-radius: 50%;" alt="person" srcset="">
+    </div>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">Title:</span> Software Engineer</p>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">Email:</span> Duncan Towwet Kipkemoi</p>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">Phone-number:</span> Duncan Towwet Kipkemoi</p>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">High-school: </span>Duncan Towwet Kipkemoi</p>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">Tertiary Institution:</span> Duncan Towwet Kipkemoi</p>
+    <p><span style="color: rgb(163, 42,41); font-weight: bold;">WebLink: </span>Duncan Towwet Kipkemoi</p>
+
+</div> -->
+
+  
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+<ng-container *ngIf = "scholarInfo; else nullTemplate">
+<div class="card-container">
+ 
+        <div class="container">
+            <div class="header">
+              <button class="no-print"  onclick="window.print()">
+                <mat-icon style="color: rgb(5, 5, 5); zoom: 2;">printer</mat-icon>
+              </button>
+              <div class="full-name">
+                <span class="first-name">{{user.firstName}}</span>
+                <span class="last-name">{{user.lastName}}</span>
+              </div>
+              <div class="contact-info">
+                <span class="email">Email: </span>
+                <span class="email-val">{{user.userEmail}}</span>
+                <span class="separator"></span>
+                <span class="phone">Phone: </span>
+                <span class="phone-val">{{scholarProfile.profile?.phoneNo}}</span>
+              </div>
+              <!-- scholars bio -->
+              <div class="about">
+                <span class="position"> </span>
+                <span class="desc" *ngFor = "let bio of bio; index as i">
+                  {{bio.description}}
+                </span>
+              </div>
+              <!-- career -->
+            </div>
+             <div class="details">
+                <!-- Education -->
+                <div class="section mt-4 mb-4">
+                  <div class="section__title">Education</div>
+  
+                  <div class="section__list" *ngFor = "let edu of education; index as i">
+                    <div class="section__list-item">
+                      <div class="left">
+                        <ng-container *ngIf= "!edu.end_date; else elsetemplate">
+                          <div class="duration">{{edu.start_date}} - To Date</div>
+                        </ng-container>
+                        <ng-template #elsetemplate>
+                          <div class="name">{{edu.start_date}} - {{edu.end_date}}</div>
+                        </ng-template>
+                        <div class="duration">{{edu.institution.name}}</div>
+                                            
+                      </div>
+                      <div class="right">
+                        <div class="name">Course Name: </div>
+                        <div class="course-desc">{{edu.course}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div>
+              <div class="section mb-3" >
+                <div class="section__title">Experience</div>
+                <div class="section__list" *ngFor="let career of careers; index as i;">
+                  <div class="section__list-item mb-4">
+                    <div class="left">
+                      <ng-container *ngIf = "!career.end_date; else elseCareer">
+                        <div class="duration">{{career.start_date}}- To Date</div>
+                      </ng-container>
+                      <ng-template #elseCareer>
+                        <div class="duration">{{career.start_date}}- {{career.end_date}}</div>
+                      </ng-template>
+                      <div class="name">{{career.title}}</div>
+                      <div class="addr">{{career.companyName}}</div>
+                      
+                    </div>
+                    <div class="right">
+                      
+                    </div>  
+                    <div class="name">Roles Perfomed:</div>
+                    <div class="career-desc">{{career.description}}</div>        
+                </div>
+              </div>
+
+               <!-- <div class="section">
+                <div class="section__title">Projects</div> 
+                 <div class="section__list">
+                   <div class="section__list-item">
+                     <div class="name">DSP</div>
+                     <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.</div>
+                   </div>
+                   
+                   <div class="section__list-item">
+                              <div class="name">DSP</div>
+                     <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
+                     </div>
+                   </div>
+                 </div>
+              </div> -->
+               <div class="section">
+                 <div class="section__title">Skills</div>
+                 <div class="skills" *ngFor= "let skill of skill; index as i;">
+                 
+                   <div class="skills__item" >
+                     <div class="left"><div class="name">
+                       {{skill.skillsName}}
+                       </div>
+                      </div>
+                     <div class="right">
+                      <div class="d-flex justify-content-center align-items-center">
+                        <mat-progress-bar
+                        class="example-margin"
+                        [color]="color"
+                        [mode]="mode"
+                        [value]="skill.level"
+                        [bufferValue]="bufferValue">
+                         </mat-progress-bar>
+                         <span>{{skill.level}}%</span>
+                      </div>            
+
+                     </div>
+                   </div>
+                   
+                 </div>    
+                   
+                 </div>
+               <!-- <div class="section">
+               <div class="section__title">
+                 Interests
+                 </div>
+                 <div class="section__list">
+                   <div class="section__list-item">
+                            Football, programming.
+                    </div>
+                 </div>
+               </div> -->
+               </div>
+            </div>
+    
+</div>
+</div>
+</ng-container>
+<ng-template #nullTemplate>
+  <div class="card-container">
+ 
+    <div class="container">
+      <button class="no-print"  onclick="window.print()">
+        <mat-icon style="color: rgb(5, 5, 5); zoom: 2;">printer</mat-icon>
+      </button>
+        <div class="header">
+          <div class="full-name">
+            <span class="first-name">{{scholarData.scholarFirstName}}</span>
+            <span class="last-name">{{scholarData.scholarLastName }}</span>
+          </div>
+          <div class="contact-info">
+            <span class="email">Email: </span>
+            <span class="email-val">No Email Record</span>
+            <span class="separator"></span>
+            <span class="phone">Phone: </span>
+            <span class="phone-val">No Nontact</span>
+          </div>
+          <!-- scholars bio -->
+          <div class="about">
+            <span class="position"> </span>
+            <span class="desc" *ngFor = "let bio of bio; index as i">
+              {{bio.description}}
+            </span>
+          </div>
+          <!-- career -->
+        </div>
+         <div class="details">
+            <!-- Education -->
+            <div class="section mt-4 mb-4">
+              <div class="section__title">Education</div>
+
+              <div class="section__list">
+                <div class="section__list-item">
+                  <div class="left">
+                      <div class="duration">{{scholarData.institution.start_date}} - To Date</div>
+                    <div class="name">{{scholarData.institution.name}}</div>
+                                        
+                  </div>
+                  <div class="right">
+                    <div class="name">Course Name: </div>
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+          <div class="section mb-3" >
+            <div class="section__title">Experience</div>
+            <div class="section__list">
+              <div class="section__list-item mb-4">
+                <div class="left">
+          
+                  <div class="name"></div>
+                      User has Not Added Expirience Details
+                </div>         
+            </div>
+            </div>
+            
+          </div>
+
+           <!-- <div class="section">
+            <div class="section__title">Projects</div> 
+             <div class="section__list">
+               <div class="section__list-item">
+                 <div class="name">DSP</div>
+                 <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.</div>
+               </div>
+               
+               <div class="section__list-item">
+                          <div class="name">DSP</div>
+                 <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
+                 </div>
+               </div>
+             </div>
+          </div> -->
+           <div class="section">
+             <div class="section__title">Skills</div>
+             <div class="skills">
+             
+               <div class="skills__item" >
+                 <div class="left"><div class="name">
+                    User Has Not Added Skills Details
+                   </div>
+                  </div>
+               </div>
+             </div> 
+             </div>
+           <!-- <div class="section">
+           <div class="section__title">
+             Interests
+             </div>
+             <div class="section__list">
+               <div class="section__list-item">
+                        Football, programming.
+                </div>
+             </div>
+           </div> -->
+           </div>
+        </div>
+
+</div>
+</ng-template>
+
+

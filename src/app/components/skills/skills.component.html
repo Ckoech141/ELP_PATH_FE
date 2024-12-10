@@ -1,0 +1,112 @@
+<div class="container-fluid">
+
+  </div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-4">
+        <div
+        class="add"
+        matTooltip="Add Skill"
+        matTooltipPosition="left"
+        matTooltipClass="tooltip"
+        (click)="addTechnicalSkill()"
+        *ngIf="!viewer"
+      >
+      <mat-icon>add_circle_outline</mat-icon>Add Technical Skills
+            </div>
+        <div class="card-body">
+          <h6>User Technical Skills</h6>
+          <mat-divider></mat-divider>
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">SkillName</th>
+                <th scope="col">SkillLevel</th>
+                <th *ngIf="!viewer" scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let skill of technicalSkills; let i = index">
+                <td>{{skill.skillName}}</td>
+                <td>{{skill.technicalLevel}}</td>
+                <td *ngIf="!viewer" class="d-flex">
+                  <mat-icon class="add" (click)="editTechnicalSkill(skill)">create</mat-icon>
+                  <mat-icon class="add"(click) ="deleteSkill(skill.id)" >delete</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      <div class="col-md-4">
+        <div
+        class="add"
+        matTooltip="Add Skill"
+        matTooltipPosition="left"
+        matTooltipClass="tooltip"
+        (click)="addSoftSkill()"
+        *ngIf="!viewer"
+      >
+      <mat-icon>add_circle_outline</mat-icon>Add Soft Skill
+            </div>
+            <div class="card-body">
+              <h6>User Soft Skills</h6>
+              <mat-divider></mat-divider>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">SkillName</th>
+                    <th scope="col">SkillLevel</th>
+                    <th *ngIf="!viewer" scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let skill of softSkills; let i = index">
+                    <td>{{skill.skillName}}</td>
+                    <td>{{skill.softSkillLevel}}</td>
+                    <td *ngIf="!viewer" class="d-flex">
+                      <mat-icon class="add" (click)="editSoftSkill(skill)">create</mat-icon>
+                      <mat-icon class="add"(click) ="deleteSkill(skill.id)" >delete</mat-icon>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      <div class="col-md-4">
+          <div
+          class="add"
+          matTooltip="Add Skill"
+          matTooltipPosition="left"
+          matTooltipClass="tooltip"
+          (click)="sformDialog()"
+          *ngIf="!viewer"
+        >
+        <mat-icon>add_circle_outline</mat-icon>Add Languages</div>
+        <div class="card-body">
+          <h6>User Languages</h6>
+          <mat-divider></mat-divider>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Language</th>
+                <th scope="col">Level</th>
+                <th *ngIf="!viewer" scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let skill of LanguageSkills; let i = index">
+                <td>{{skill.skillName}}</td>
+                <td>{{skill.languageLevel}}</td>
+                <td *ngIf="!viewer" class="d-flex">
+                  <mat-icon class="add" (click)="editLanguageSkill(skill)">create</mat-icon>
+                  <mat-icon class="add" (click) ="deleteSkill(skill.id)" >delete</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

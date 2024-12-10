@@ -1,0 +1,216 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form
+        [formGroup]="profileForm"
+        class="profile-form"
+        (ngSubmit)="submit()"
+        enctype="multipart/form-data"
+      >
+        <!-- form field -->
+        <div class="form-field">
+          <span>Edit Profile</span>
+          <!-- label -->
+          <label class="form-label">Professional Title <span style="color: red;">*</span></label>
+          <!-- input -->
+          <input
+            type="text"
+            name="title"
+            placeholder="eg. Software Engineer"
+            formControlName="title"
+          />
+        </div>
+        <!-- <div *ngIf="profileForm.get('title')?.invalid && profileForm.get('title')?.touched">
+          <small style="color: red; align-items: start;">The field is required</small>
+        </div> 
+         -->
+
+        <!-- form field -->
+        <div class="form-field">
+          <label for="" class="form-label">Employment Status <span style="color: red;">*</span></label>
+          <mat-select formControlName="jobStatus" name="jobStatus"
+          (selectionChange)="onChangeEmploymentStatus($event)">
+            <mat-option *ngFor="let job of jobStatus" [value]="job.value"
+           >
+              {{ job.viewValue }}
+              <div *ngIf="job.viewValue === 'Self-Employed'">
+              <!-- create input fields -->
+                </div>
+              </mat-option>
+          </mat-select>
+
+          <div [hidden]="hidden">
+            <div class="form-field">
+              <label for="companyName" class="form-label">Business Name</label>
+              <input type="text" id="BusinessName" formControlName="businessName">
+            </div>
+            <div class="form-field">
+              <label for="" class="form-label">Business Status</label>
+              <mat-select formControlName="businessStatus" name="businessStatus"
+              (selectionChange)="onChangeBusinessStatus($event)">
+                <mat-option value="NotRegistered">UnRegistered</mat-option>
+                <mat-option value="Registered">Registered</mat-option>
+              </mat-select>
+            </div>
+            <div [hidden]="hidden ">
+              <div class="form-field">
+                <label for="annualIncome" class="form-label">Business registration number</label>
+                <input type="text" id="annualIncome" formControlName="businessRegNo">
+              </div>
+            </div>
+            
+          </div>
+           
+        </div>
+        
+
+        
+        <!-- scholar category -->
+        <div class="form-field">
+          <label for="" class="form-label">Scholar Category <span style="color: red;">*</span></label>
+          <mat-select formControlName="category" name="category">
+            <mat-option *ngFor="let category of scholarCategories" [value]="category">
+              {{ category }}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <!-- form field -->
+        <div class="form-field">
+          <label for="" class="form-label"> Country of Residence  <span style="color: red;">*</span></label>
+          <mat-select formControlName="currentCountryofResidence" name="country" (selectionChange)="onCountrySelection()">
+            <mat-option
+              *ngFor="let country of countryList"
+              [value]="country.name"
+       
+            >
+              {{ country.name }}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div *ngIf="profileForm.get('currentCountryofResidence')?.invalid && profileForm.get('currentCountryofResidence')?.touched">
+          <small style="color: red; align-items: start;">The field is required</small>
+        </div>
+
+        <div class="form-field">
+          <label for="" class="form-label"> City</label>
+          <mat-select formControlName="currentCityofResidence" name="city">
+            <mat-option *ngFor="let city of cityList" [value]="city">
+              {{ city }}
+            </mat-option>
+          </mat-select>
+
+        </div>
+        <div class="form-field">
+          <label for="" class="form-label"> County of Residence  </label>
+          <mat-select formControlName="currentCountyofResidence" name="county">
+            <mat-option *ngFor="let county of countyList" [value]="county.id">
+              {{county.name}}
+            </mat-option>
+          </mat-select>
+
+        </div>
+
+        <!-- form field -->
+        <!-- <div class="form-field">
+          <label for="" class="form-label"> City</label>
+          <mat-select formControlName="city" name="city">
+            <mat-option *ngFor="let city of cities" [value]="cities.name">
+              {{ cities.name }}
+            </mat-option>
+          </mat-select>
+        </div> -->
+               
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Phone Number <span style="color: red;">*</span></label>
+          <!-- country code dropdown -->
+        
+          <!-- input -->
+          <input
+              type="text"
+              name="phoneNo"
+              min="0"
+              placeholder="eg. 0712345678"
+              formControlName="phoneNo"
+          />
+      </div>
+        <div *ngIf="profileForm.get('phoneNo')?.invalid && profileForm.get('phoneNo')?.touched">
+          <small style="color: red; align-items: start;">The field is required</small>
+        </div>
+
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Email Address <span style="color: red;">*</span></label>
+          <!-- input -->
+          <input
+            type="text"
+            name="email"
+            placeholder="eg. example@elp.com"
+            formControlName="email"
+          />
+        </div>
+        <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+          <small style="color: red; align-items: start;">Invalid email address</small>
+        </div>
+
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Website Link</label>
+          <!-- input -->
+          <input
+            type="text"
+            name="website"
+            placeholder="eg. www.website.com"
+            formControlName="website"
+          />
+        </div>
+
+        <!-- form field -->
+        <!-- <div class="form-field">
+          <input
+            type="file"
+            id="imagefile"
+            name="file"
+            style="display: none"
+            (change)="onFileChange($event)"
+            accept="image/*"
+          />
+          <div class="select-image">
+            <label for="imagefile">Select Profile Image</label>
+            <div *ngIf="imageUrl" class="image-item">
+              <img [src]="imageUrl" alt="Profile Image" />
+            </div>
+          </div>
+        </div> -->
+<ng-container *ngIf="sending ; else elseTemplate" >
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    saving...
+  </button>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="save-button">
+    <button (keydown.enter)="(submit)" type="submit" class="btn" [disabled]="!profileForm.valid" [ngClass]="{background : !profileForm.valid}">
+      Save
+    </button>
+  </div>
+</ng-template>
+      
+      </form>
+      <div *ngIf="profileForm.valid && profileForm.touched ">
+        <p class="draft">Your draft has been saved. You can complete filling the form later.</p>
+      </div>
+      <!-- <button (click)="getdata()">getdata</button> -->    
+     </div>
+  </div>
+</div>

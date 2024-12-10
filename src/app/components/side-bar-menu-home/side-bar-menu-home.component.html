@@ -1,0 +1,27 @@
+<div class="containerHome">
+  <app-navbar class="navbar"></app-navbar>
+
+  <div class="maincontainer mt-5">
+    <div class="homecontainer mt-2">
+      <!--first columns user profile and sibar menu (hubs,projects...)!-->
+      <div class="column-1">
+        <!--user profile card!-->
+
+        <div class="leftcard">
+          <app-user-profile-card class="profile_card"></app-user-profile-card>
+
+          <!--sidebar menu (hubs,projects...)!-->
+          <div><app-side-bar-menu></app-side-bar-menu></div>
+        </div>
+      </div>
+      <div class="feed-people-cont">
+        <!-- feeds component -->
+        <div class="feeds-container">
+          <router-outlet></router-outlet>
+      </div>
+      <!--column 3 ,has discover people to join!-->
+
+    </div>
+    </div>
+  </div>
+</div>

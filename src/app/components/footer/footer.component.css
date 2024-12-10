@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:wght@400&display=swap");
+/* .footer {
+  width: 90vw;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  background: white;
+  font-family: "Poppins", sans-serif;
+  color: #332222;
+  margin-left: 20px;
+}
+
+.footer_itm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+.footer_itm li {
+  list-style: none;
+}
+.footer_itm li a {
+  text-decoration: none;
+  color: #757373;
+  font-size: medium;
+}
+
+.built_itm {
+  background: #fff;
+  font-size: small;
+  justify-content:center;
+  color: #757373;
+}# sourceMappingURL=footer.component.css.map */

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content">
+                <div class="main-info">
+                    <div class="title">
+                        <h4><span>Event Name:</span>{{eventInfo?.eventName}}</h4>
+                    </div>
+                    <div class="description">
+                        <p><span>Event Infor:</span>{{eventInfo?.eventDescription}}</p>
+                    </div>
+                    <div class="image" *ngFor="let img of eventInfo?.eventImages">
+                        <img [src]="http.serverUrl+'images/' + img" class="image-fluid responsive" alt="">
+                    </div>
+                </div>
+                <div class="iconimage m-2 p-1">
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <mat-icon>event</mat-icon>
+                        <span>Date:{{ eventInfo?.eventDate | date }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <mat-icon>groups_outline</mat-icon>
+                        <span>Organizer:{{ eventInfo?.organizer }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo">
+                        <mat-icon>schedule</mat-icon>
+                        <span>Time:{{ eventInfo?.eventDate | date : "shortTime" }}</span>
+                    </div>
+                    <!-- icon container -->
+                    <div class="iconinfo" *ngIf="data.location">
+                        <mat-icon>location_on</mat-icon>
+                        <span>Location:{{ eventInfo?.location }}</span>
+                    </div>
+                    <div class="iconinfo" *ngIf="eventInfo?.link">
+                        <mat-icon>link</mat-icon>
+                        <span>Link:{{ eventInfo?.link }}</span>
+                    </div>
+
+                    <!-- icon container -->
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Event Subscribers</h3>
+            <div class="title my-3 p-1" *ngFor="let user of eventAttendants; let i = index">
+                
+                <h6>{{i+1}}: {{user.participator.firstName}} {{user.participator.lastName}}</h6>
+            </div>     
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,65 @@
+<div class="maincontainer">
+  <div class="container">
+    <div class="row1">
+      <div class="row1content">
+      
+        <div class="info">
+          <p>Survey</p>
+
+          <span >Add  Survey</span>
+
+        </div>
+
+
+        
+       
+        <div class="button">
+          <button (click)="addSurvey()">Add Survey </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div> 
+
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Survey Title</th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Question </th>
+      <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+    </ng-container>
+  
+   
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator
+  #paginator
+  [length]="100"
+  [pageSize]="2"
+  [pageSizeOptions]="[5, 10,20, 100]"
+  aria-label="Select page"
+  class="mb-3"
+>
+</mat-paginator>
+</div>

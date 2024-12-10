@@ -1,0 +1,75 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form class="profile-form" [formGroup]="surveyForm" (ngSubmit)="sendSurvey()" enctype="multipart/form-data">
+        <!-- form field -->
+        <div class="form-field">
+          <span>Survey</span>
+          <!-- label -->
+          <label class="form-label">Survey Title</label>
+          <input class="form-control" type="text" id="title" formControlName="title" matInput placeholder="title"
+            value="title" required>
+
+        </div>
+        <div class="form-field">
+          <mat-label>Select Chapter</mat-label>
+          <mat-select class="select form-control" id="institution" formControlName="institutional"
+            placeholder="Institutional Recipient">
+            <mat-option *ngFor="let institution of institutional" [value]="institution">{{ institution.chapterName
+              }}</mat-option>
+          </mat-select>
+        </div>
+
+
+
+
+        <div class="form-field">
+          <mat-label>Select Hub</mat-label>
+          <mat-select class="select form-control" id="regional" formControlName="regional"
+            placeholder="regional Recipient">
+            <mat-option *ngFor="let region of regional" [value]="region">{{ region.chapterName }}</mat-option>
+          </mat-select>
+        </div>
+
+
+        <div formArrayName="questions">
+          <div class="form-group" *ngFor="let question of questionControls; 
+          let i = index" [formGroupName]="i">
+            <div >
+              <mat-label>Enter Survey Question</mat-label>
+              <textarea type="text" formControlName="question" class="questions" matInput placeholder="Enter survey question" required
+                id="quest"></textarea>
+              <button type="button" (click)="removeQuestion(i)" style="background-color:rgb(210, 38, 38)"
+                class="btn btn-small">Remove</button>
+            </div>
+          </div>
+          <button type="button" class="mt-3 btn btn-small" (click)="addQuestion()" id="add">Add Survey Question</button>
+
+        </div>
+
+
+        <ng-container *ngIf="isSending; else notSending">
+          <mat-spinner id="sending"></mat-spinner>
+        </ng-container>
+
+
+        <div class="save-button">
+          <ng-template #notSending>
+            <button type="submit" class="button  " id="submit">
+              Save
+            </button>
+          </ng-template>
+        </div>
+        
+      </form>
+      <!-- <button (click)="getdata()">getdata</button> -->
+    </div>
+  </div>
+</div>

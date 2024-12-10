@@ -1,0 +1,111 @@
+<!-- Nav Bar -->
+<div class="nav-container">
+<nav class="navbar px-5">
+  <!-- Left Nav -->
+
+  <div class="navbar-search">
+    <img class="ms-3" src="../../../assets/images/equity-bank-logo.png" alt="logo">
+    <div class="search-bar-container">
+      <app-search  #searchInput (searchTextChanged)="onSearchTextEntered($event)">
+        <!-- Place spinner inside this component if possible -->
+      </app-search>   
+      <mat-progress-spinner *ngIf="isLoading" class="search-spinner" [mode]="spinnerMode" [diameter]="20"></mat-progress-spinner>
+      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport suggestions">
+        <div *cdkVirtualFor="let word of filteredWords" class="suggestion-item">
+          <a (click)="onSuggestionClicked(word)">
+            {{ isLink(word.content) ? processLink(word.content) : word.content }}
+          </a>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    
+  </div>
+
+  <div class="navbar-menu me-3">
+    <!-- Home -->
+    <div class="button-list">
+    <button routerLink="/home" mat-button>
+      <mat-icon>home</mat-icon><span class="nav-item">Home</span>
+    </button>
+
+    <!-- Notification -->
+    <button [matMenuTriggerFor]="notifications" mat-button>
+      <mat-icon>notifications</mat-icon
+      ><span class="nav-item"
+        matBadge= {{eventsCount}}
+        matBadgeSize="small"
+      >
+        Notifications</span
+      >
+    </button>
+    
+
+    <!-- Me Avatar Menu -->
+    <button [matMenuTriggerFor]="menu" mat-button>
+      <mat-icon>account_circle</mat-icon><span class="nav-item">Me</span>
+    </button>
+</div>
+    <!-- <mat-menu #notifications="matMenu">
+  
+      <div class="media"  *ngFor="let item of notifications">
+        <div class="media-body">
+          <p>
+            <strong>UON Chapter</strong> Posted a New Event! <br />
+            <span>Oct 24 08:56am</span>
+          </p>
+        </div>
+      </div>
+    </mat-menu> -->
+    <mat-menu #notifications="matMenu">
+      <ng-container *ngFor="let item of events; let i = index" >
+          <div class="media" routerLink="/sidebarhome/chapter-list" *ngIf="i < 2">
+              <div class="main-img-user"></div>
+              <img src="../../../assets/images/Notification icon.png " alt="" width="70px">
+              <div class="media-body">
+                  <p>
+                      <strong>{{ item.events.eventName }}</strong> Taking Place On {{ item.events.eventDate | date }} <br />
+                      <br>
+                      <span><strong>Location: </strong>{{ item.events.location }}</span>
+                  </p>
+              </div>
+              <div class="main-img-user"></div>
+          </div>
+      </ng-container>
+  
+      <p style="margin-left: 10px;">
+          <a style="color: rgb(112, 30, 9); font-weight: bold; cursor: pointer;" (click)="onNotification(events)" *ngIf="eventsCount > 0">
+              See more
+          </a>
+      </p>
+  
+      <ng-container *ngFor="let item of items; let i = index">
+          <div class="media" routerLink="/sidebarhome/chapter-list" *ngIf="i < 2">
+              <!-- Your existing HTML for item -->
+              <!-- You can place the HTML for each item here -->
+          </div>
+      </ng-container>
+  </mat-menu>
+  
+
+    <!-- Sub Menu -->
+    <mat-menu #menu="matMenu">
+      <!-- LogOut -->
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>LogOut
+      </button>
+
+      <!-- Account Settings -->
+      <button mat-menu-item [routerLink]="['/user_profile']">
+        <mat-icon>person</mat-icon>Profile
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>AccountSettings
+      </button>
+    </mat-menu>
+  </div>
+
+  <!-- =========================================================================== -->
+
+</nav>
+</div>
+

@@ -1,0 +1,128 @@
+<div class="main-container">
+  <div class="exit-post">
+    <div class="button">
+      <button mat-dialog-close matTooltip="Close" matTooltipClass="close">
+        <img src="assets/images/x.svg" height="20" />
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <p>Add Education</p>
+      <form [formGroup]="eduForm" class="education-form" (ngSubmit)="submit()">
+        <!-- form field -->
+        <div class="form-field">
+          <label for="">Choose scholar education status <span style="color: red;">*</span></label>
+          <mat-select
+            formControlName ="educationType"
+            name = "educationType" 
+          >
+            <mat-option *ngFor="let eduStat of eduStatus" [value]="eduStat">
+              {{eduStat}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="form-field">
+          <label for="country" class="form-label">University Country</label>
+          
+          <mat-select formControlName="country" id="universityCountry" >
+            <option value="" disabled selected>Select Country</option>
+            <mat-option *ngFor="let country of countries" [value]="country.id"  (click)="onCountryChange(country.countryName)">{{country.countryName}}</mat-option>
+          </mat-select>
+        </div>
+        <div class="form-field" *ngIf="selected">
+          <!-- label -->
+          <label class="form-label">Institution Name <span style="color: red;">*</span> </label>
+          <mat-select formControlName="institution" name="institution" (selectionChange)="onInstitutionSelectionChange($event)">
+          
+            <mat-option
+              *ngFor="let school of institutionOptions; let i = index"
+              [value]="school.id"
+            >
+              {{ school.institutionName}}
+            </mat-option>
+          </mat-select>
+        </div>
+       
+        <!-- form field -->
+        <div class="form-field">
+          <label for="" class="form-label">Course Category <span style="color: red;">*</span></label>
+          <mat-select
+            formControlName="clusters"
+            name="clusters"
+          >
+            <mat-option
+              *ngFor="let cluster of clusterOptions"
+              [value]="cluster.id"
+              (click)="getCourses(cluster.id)"
+            >
+              {{ cluster.name }}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <!-- form field -->
+        <div class="form-field" *ngIf="courses">
+          <label class="form-label"> Courses <span style="color: red;">*</span></label>
+          <mat-select formControlName="course" name="course">
+            <mat-option *ngFor="let course of courseOptions" [value]="course.id"  (click)="onCourseSelectionChange(course.id)">
+              {{ course.name }}
+            </mat-option>
+          </mat-select>
+        </div>
+      
+        <div class="form-field">
+          <label for="courseLevel" class="form-label">Course Level <span style="color: red;">*</span></label>
+          <mat-select formControlName="courseLevel" id="courseLevel">
+            <mat-option value="Form4">Form 4</mat-option>
+            <mat-option value="CollegeOrTVETCertificate">CollegeOrTVETCertificate</mat-option>
+            <mat-option value="CollegeOrTVETDiploma">CollegeOrTVETDiploma</mat-option>
+            <mat-option value="ProfessionalCertificate">ProfessionalCertificate</mat-option>
+            <mat-option value="HigherDiploma">HigherDiploma</mat-option>
+            <mat-option value="Undergraduate">Undergraduate</mat-option>
+            <mat-option value="PostgraduateMasters">PostgraduateMasters</mat-option>
+            <mat-option value="PhD">PhD</mat-option>
+          </mat-select>
+        </div>
+      
+        <!-- form field -->
+        <div class="form-field">
+          <!-- input  calender-->
+          <div class="calendar-input">
+            <!-- start date -->
+              <div class="date-start">
+                <label class="form-label">Start date <span style="color: red;">*</span></label>
+                <input type="date" formControlName="startYear"/>
+              </div>
+              <!-- end date -->
+              <ng-container class="date-end" *ngIf="eduForm.value.educationType =='CurrentScholar'; else enddate">
+                  <label class="form-label">Expected Graduation date <span style="color: red;">*</span></label>
+                  <input type="date" formControlName="expectedGraduationYear"/>
+              </ng-container>
+              <ng-template class="date-end" #enddate>
+                <label class="form-label">Graduation date <span style="color: red;">*</span></label>
+                <input type="date" formControlName="graduationYear"/>
+              </ng-template>
+            </div>
+            <br>
+
+          <div class="date-end" *ngIf="eduForm.value.educationType =='Alumni'">
+            <label class="form-label">Grade/award/certificate <span style="color: red;">*</span></label>
+            <input type="text" formControlName="grade"/>
+          </div>
+
+        </div>
+        <ng-container *ngIf="saving else elseTemplate">
+          <div class="spinner-border text-primary" role="status">
+          </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div class="save-button">
+            <button (keydown.enter)="(submit)" class="button" mat-button [disabled]="eduForm.invalid">Save</button>
+          </div>
+        </ng-template>
+       
+      </form>
+    </div>
+  </div>
+</div>

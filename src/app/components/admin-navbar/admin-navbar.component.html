@@ -1,0 +1,104 @@
+<!-- <mat-toolbar color="primary" class="toolbar mat-elevation-z8">
+  <p>
+    <mat-icon
+      mat-button
+      matTooltip="Menu"
+      matTooltipPosition="below"
+      matTooltipClass="tooltip"
+      (click)="toggleButton()"
+    >
+      menu
+    </mat-icon>
+  </p>
+
+  <div class="nav">
+    <div class="navbar-search">
+      <div>
+        <img src="assets/images/equity-bank-logo.png" />
+      </div> -->
+<!-- <mat-form-field appearance="outline" class="form-field">
+      <input matInput placeholder="Search" required />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field> -->
+<!-- </div>
+    <div class="navbar-menu">
+      <a routerLink="/home" class="menu-item">
+        <button mat-button>
+          <mat-icon>home</mat-icon>
+          Home
+        </button>
+      </a>
+
+      <div class="menu-item">
+        <button mat-button>
+          <mat-icon>notifications</mat-icon>
+          Notifications
+        </button>
+      </div>
+
+      <div class="menu-item">
+        <button mat-button (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>LogOut
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar> -->
+
+<!-- =========================================================================== -->
+
+<!-- Nav Bar -->
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+  <!-- Left Nav -->
+
+  <div class="navbar-search d-flex align-items-center">
+    <button (click)="toggleButton()" class="buton d-flex align-items-center justify-content-center">
+      <mat-icon id="toggleicon" class="apColor" style="font-size: 25px;">menu</mat-icon>    
+    </button>
+    <p class="firstS mt-3">ELP PATH</p>
+
+  </div>
+
+  <!-- Right Menu -->
+  <div class="navbar-menu me-5">
+    <!-- Home -->
+    <button routerLink="/home" mat-button>
+      <mat-icon class="apColor">home</mat-icon>
+      <span class="nav-item text-dark">Home</span>
+    </button>
+
+    <!-- Notification -->
+    <button mat-button>
+      <mat-icon class="apColor">notifications</mat-icon
+      ><span class="nav-item text-dark"> Notifications</span>
+    </button>
+
+    <!-- Me Avatar Menu -->
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="apColor">account_circle</mat-icon>
+      <span class="nav-item text-dark">Me</span>
+    </button>
+
+    <!-- Sub Menu -->
+    <mat-menu #menu="matMenu">
+      <!-- LogOut -->
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>LogOut
+      </button>
+
+      <!-- Account Settings -->
+      <button mat-menu-item routerLink="/user_profile">
+        <mat-icon>person</mat-icon>Profile
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>AccountSettings
+      </button>
+    </mat-menu>
+  </div>
+
+  <!-- =========================================================================== -->
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="card-title">
+        <em style="text-decoration: underline;">
+            Edit Achievements
+        </em>
+        
+    </div>
+    <form class="form-group" [formGroup]="editAchievementForm" (ngSubmit)="editAchievement()">
+        <div class="mb-3">
+            <label class="label" for="name">Achievement Name</label>
+            <input class="form-control"  type="text" formControlName="name" >
+        </div>
+        <div class="mb-3">
+            <label class="form-control" for="description">Achievement Description</label>
+            <textarea class="form-control" name="description" formControlName="description" id="" cols="30" rows="10"></textarea>
+        </div>
+        <ng-container *ngIf="!isupdating; else elseTemplate">
+            <button id="submit" class="btn mb-3" type="submit" (keydown.enter)="(editAchievement)">Update achievement</button>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <mat-spinner id="sending" ></mat-spinner>
+          </ng-template>
+    </form>
+</div>

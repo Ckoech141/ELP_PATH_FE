@@ -1,0 +1,76 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .container-fluid{
+    .card{
+        height: 70vh;
+        border-radius: 5px;
+    }
+  }
+  .comments{
+    display: block;
+    padding: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    gap: 8px;
+  }
+  .comment-container{
+    overflow-y: scroll;
+  }
+  .rounded-circle{
+    display: flex;
+    background: rgb(162,41,42);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 1px;
+    span{
+        color: white;
+        font: 1em sans-serif;
+        font-weight: 800;
+    }
+  }
+  .comment-body{
+    gap: 3px;
+    background: rgb(229, 227, 227);
+    padding: 5px;
+    max-width: 250px;
+    border-radius: 15px;
+    margin-left: 5px;
+    padding: 5px;
+    span{
+        color: #636262;
+        font: 0.7em sans-serif;
+        font-weight: bold;
+    }
+    p{
+        color: #000;
+        font: 0.7em sans-serif;
+    }
+
+  }
+  .form-group{
+    position: relative;
+    bottom: 0px;
+
+  }
+  .comment-form{
+    width: fit-content;
+  }
+
+  button{
+    border: none;
+    background: none;
+  }
+  mat-icon{
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    zoom: 1.4;
+    color: rgb(162,41,42);
+  }

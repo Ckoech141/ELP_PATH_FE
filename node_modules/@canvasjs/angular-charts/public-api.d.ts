@@ -1,0 +1,2 @@
+export * from './lib/angular-charts.component';
+export * from './lib/angular-charts.module';

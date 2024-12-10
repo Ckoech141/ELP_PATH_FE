@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="column1-container">
+    
+    <div class="activity-container d-flex justify-content-between mt-3 py-2 px-5">
+      <div class="d-flex align-items-center">
+        <span class="events">Events</span>
+        <button id="events-set" class="btn btn-sm" (click)="addEventDialog()">
+          <mat-icon>add-outline</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <app-admin-hub-events [hubid]="hubId"></app-admin-hub-events>
+    </div>
+  </div>
+  <!--column2-->
+
+  <div class="column2-container">
+    <div class="card d-flex align-items-center justify-content-center mt-3 card1"style="height: 4em;">
+      <span>Set HubAdmin</span>
+      <button id="admin-set" class="btn btn-sm" (click)="addAdmin()">
+        <mat-icon>add-outline</mat-icon>
+      </button>
+    </div>
+    <!-- chapters profile -->
+    <app-admin-hub-profile
+      [hubid]="hubId"
+    ></app-admin-hub-profile>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.main-container {
+    padding-left: 15px;
+    padding-top: 15px;
+    justify-content: center;
+    // display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+h1 {
+    font-size: xx-large;
+    color: #a57070;
+    font-weight: lighter;
+    text-align: center;
+}
+.content {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    // align-items: center;
+}
+mat-card {
+    width: 35%;
+}
+mat-form-field {
+    width: 100%;
+    margin-right: 10%;
+}
+.form-control.ng-touched.ng-invalid {
+    border: 3px solid brown;
+}
+
+.form-control.ng-touched.ng-valid {
+    border: 3px solid green;
+}
+.mat-mdc-raised-button.btn {
+    width: 100%;
+    background-color: crimson;
+}
+
+mat-form-field.focused {
+    color: crimson;
+}
+
+// // Change Mat-Input Border Color & Width
+// :host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+// :host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+// :host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+//   border-color: crimson;
+//   border-width: 4px;
+// }
+
+// Focus To Change Border Color in Mat-Input
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: crimson;
+  border-width: 2px;
+}

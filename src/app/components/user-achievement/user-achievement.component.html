@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div
+    class="add"
+    matTooltip="Add Achievements"
+    matTooltipPosition="left"
+    (click)="addAchievemnt()"
+    *ngIf="!viewer"
+  >
+    <mat-icon>add_circle_outline</mat-icon>Add achievements
+  </div>
+  <div class="row">
+    <div class="col-sm-6 my-1 p-2" *ngFor="let achievement of achievementData">
+      <div class="card" >
+
+        <div class="card-body">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+          <button class="edit" (click)="editAchievement(achievement)">
+            <mat-icon class="mat-icon">edit</mat-icon>
+          </button>
+          <button class="delete" (click)="deleteAchievement(achievement.id)">
+            <mat-icon class="mat-icon">delete</mat-icon>
+          </button>
+        </mat-menu>
+          <h5 class="card-title"><span>Achievement Name:</span> {{achievement.name}}</h5>
+          <mat-divider></mat-divider>
+          <div class="card-content">
+            <p>{{achievement.description}}</p>
+          </div>
+          
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

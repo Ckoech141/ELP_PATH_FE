@@ -1,0 +1,58 @@
+
+<div class="leftcard mt-2">
+  <div class="side-buttons-container">
+    <Button
+      class="side-buttons"
+      routerLink="/home/chapter-list"
+      routerLinkActive="active"
+    >
+      <mat-icon>groups</mat-icon>
+      <p class="btn_list">Chapters</p>
+      
+    </Button>
+
+    <Button
+      class="side-buttons"
+      routerLink="/home/hub"
+      routerLinkActive="active"
+    >
+      <mat-icon>groups</mat-icon>
+      <p class="btn_list">Hubs</p>
+    </Button>
+
+    <Button
+      class="side-buttons"
+      routerLink="/home/events"
+      routerLinkActive="active"  
+    >
+      <mat-icon>event</mat-icon>
+      <p class="btn_list">Events</p>
+    </Button>
+
+    <!-- <Button
+      class="side-buttons"
+      routerLink="/sidebarhome/activities"
+      routerLinkActive="active"
+    >
+      <mat-icon>precision_manufacturing</mat-icon>
+      <p class="btn_list">Activities</p>
+    </Button> -->
+
+    <Button
+      class="side-buttons"
+      [routerLink]="['/home', { outlets: { primary: 'jobs' } }]"
+      routerLinkActive="active"
+    >
+      <mat-icon>key</mat-icon>
+      <p class="btn_list">Opportunities</p>
+    </Button>
+    <Button
+      class="side-buttons"
+      routerLink="/home/people"
+      routerLinkActive="active"
+    >
+      <mat-icon>people</mat-icon>
+      <p class="btn_list">People</p>
+    </Button>
+  </div>
+</div>

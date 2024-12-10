@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div *ngIf="loading" class="progress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div class="chapters-container">
+    <!-- single  chapter card  -->
+
+    <div class="card col-md-3 px-3 d-flex m-2 align-items-center" style="margin:12" *ngFor="let data of hubData">
+      <!-- profile image -->
+      <div class="chapter-profile-image">
+        <img [src]="data.imageUrl" *ngIf="data.imageUrl !== null" />
+        <mat-icon *ngIf="data.imageUrl === null">groups</mat-icon>
+      </div>
+      <!-- chapter title -->
+      <div class="chapter-title">
+        <span>{{ data.hubName | titlecase }}</span>
+      </div>
+      <!-- chater details -->
+      <div class="chapter-details">
+        <p>{{ data.hubDescription | titlecase }}</p>
+      </div>
+      <!-- view button -->
+      <div class="d-flex">
+        <button [routerLink]="['/admin/hubhome', data.hubId]" class="view-button">
+          <mat-icon>visibility</mat-icon>
+        </button>
+
+        <button class="view-button">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteHub(data.hubId)" class="view-button">
+          <mat-icon>delete</mat-icon>          
+      </button>
+      </div>
+
+    </div>
+    <!--------------------------------------------------------------------------------------------------->
+  </div>
+  <!-- activity -->
+  <div class="activity-container">
+    <div class="card card-requests"  (click)="hubJoinRequests()">
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <button class="btn btn-requests">
+         
+          Hub Join Requests</button>
+          <div class="rounded-circle">
+            <span class="count">{{hubJoinReq?.length}}</span>
+          </div>
+      </div>
+    </div>
+    <app-admin-ongoing-activities-card></app-admin-ongoing-activities-card>
+    <app-admin-recent-activities-card></app-admin-recent-activities-card>
+    <app-admin-scheduled-activities-card></app-admin-scheduled-activities-card>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="main-container">
+  <div class="container">
+    <div class="form-container">
+      <form [formGroup]="roleform" class="elp-form" (ngSubmit)="submit()">
+        <!-- form field -->
+        <div class="form-field">
+          <!-- label -->
+          <label class="form-label">Role Name </label>
+          <!-- input -->
+          <input
+            type="text"
+            name="roleName"
+            placeholder="eg. branch champion"
+            formControlName="roleName"
+          />
+        </div>
+        <p>{{ error }}</p>
+<ng-container *ngIf="isSaving else elseTemplate">
+  <div class="spinner-border text-primary" role="status">
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="save-button">
+    <button
+      (keydown.enter)="(submit)"
+      type="submit"
+      class="button"
+      [disabled]="roleform.invalid"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+       
+      </form>
+    </div>
+  </div>
+</div>

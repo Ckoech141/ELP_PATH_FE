@@ -1,0 +1,76 @@
+<div class="main-container">
+  <div
+    class="add"
+    matTooltip="Add Education"
+    matTooltipPosition="left"
+    matTooltipClass="tooltip"
+    (click)="eformDialog('add')"
+    *ngIf="!viewer"
+  >
+    <mat-icon>add_circle_outline</mat-icon>Add
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 p-2" *ngFor="let item of rowData">
+    <div class="card" >
+      <div class="card-body">
+        <div class="container">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+          <div
+            class="add"
+            matTooltip="Edit Education"
+            matTooltipPosition="left"
+            matTooltipClass="tooltip"
+            (click)="EditformDialog('edit', item)"
+            *ngIf="!viewer"
+          ><mat-icon>edit</mat-icon>
+          </div>
+        
+
+          <div
+          class="add"
+          matTooltip="delete Education"
+          matTooltipPosition="left"
+          matTooltipClass="tooltip"
+          (click)="DformDialog(item.id)"
+          *ngIf="!viewer"
+        >
+          <mat-icon>delete</mat-icon>
+        </div>
+        </mat-menu>
+          <div class="content">
+            <p class="content-title">
+              Institution Name:
+              {{
+                (item.institution.name ? item.institution.name : "Institution Name") | titlecase
+              }}
+            </p>
+            <p class="content-course">Course: {{ item.course.name | titlecase }}</p>
+            <!-- <p>
+              <i>Grade: {{ item.grade ? item.grade : "Grade" }}</i>
+            </p> -->
+            <div class="date">
+              <div class="start_date">
+                <label>Joined In: </label>
+                <p>{{ item?.startYear | date }}</p>
+              </div>
+              <div class="end_date">
+                <label *ngIf = "item.graduationYear "> Completed On: </label>
+                <label *ngIf = "item.expectedGraduationYear "> Expected Graduation Date: </label>
+                <p>{{ item.graduationYear ? (item.graduationYear | date) : (item.expectedGraduationYear | date) }}</p>
+              </div>
+            </div>
+            <div class="grade" *ngIf="item.grade">
+              <label>Award/Grade:</label>
+              <p>{{item.grade}}</p>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- Job Opportunities Report -->
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Job Opportunities Report</h5>
+      </mat-panel-title> 
+    </mat-expansion-panel-header>
+<form [formGroup]="DateForm">
+  <mat-form-field color="accent">
+    <mat-label>Select Time Range</mat-label>
+    <input matInput [matDatepicker]="picker1" formControlName="dateFrom">
+    <mat-hint>Date From</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field color="accent">
+    <mat-label>Select Time Range</mat-label>
+    <input matInput [matDatepicker]="picker2" formControlName="dateTo">
+    <mat-hint>Date To</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+
+  <button class="info" type="submit" mat-fab extended color="primary" [disabled]="loading" (click)="pullJobOpportunity()">
+    <span *ngIf="!loading">Download Report</span>
+    <div *ngIf="loading" class="spinner">
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    </div>
+  </button>
+  </form> 
+</mat-expansion-panel>
+</mat-accordion>

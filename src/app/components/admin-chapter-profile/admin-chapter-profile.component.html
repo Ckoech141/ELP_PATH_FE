@@ -1,0 +1,83 @@
+<!-- single  chapter card  -->
+
+<div class="chapter-profile-card">
+  <!-- background image -->
+  <div class="backimage"></div>
+  <!-- profile image -->
+  <div class="chapter-profile-image">
+    <img [src]="http.serverUrl+'images/'+imageUrl" *ngIf="imageUrl" />
+    <mat-icon class="appColor" *ngIf="!imageUrl">person</mat-icon>
+  </div>
+  <!-- chapter title -->
+  <div class="chapter-title">
+    <span>Chapter Name:{{ chapterName }}</span>
+  </div>
+
+  <!-- mat divider -->
+  <div class="divider">
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- chapter details container -->
+  <div class="details-container">
+    <span>Details</span>
+    <!-- chapter details -->
+    <div class="chapter-details">
+      <div class="icon"><mat-icon>group_outline</mat-icon></div>
+      <div class="text">
+        <span>Members</span>
+        <p>{{ countMembers ? countMembers : 0 }}</p>
+      </div>
+    </div>
+
+    <!----------------------------------------------------->
+    <!-- chapter details -->
+    <div class="chapter-details">
+      <div class="icon"><mat-icon>info_outline</mat-icon></div>
+      <div class="text">
+        <span>Description</span>
+        <p>{{ chapterDescription }}</p>
+      </div>
+    </div>
+    <!----------------------------------------------------->
+
+    <!-- chapter details -->
+    <div class="content-container">
+      <div class="icon"><mat-icon>manage_accounts_outline</mat-icon></div>
+      <div class="text mx-2">
+        <span>Admin</span>
+        <p>{{chapterData?.chapterLeader?.scholarFirstName}} {{chapterData?.chapterLeader?.scholarLastName}}</p>
+      </div>
+    </div>
+    <!----------------------------------------------------->
+  </div>
+  <div class="container">
+    <div class="content-container">
+      <!-- column 1 -->
+      <div class="details">
+        <!-- title -->
+        <div class="title">
+          <p>Scheduled Activities</p>
+        </div>
+        <!-- description -->
+        <div class="description">
+          <p>Number of Scheduled Events</p>
+        </div>
+        <!-- total number -->
+        <div class="numbers">
+          <p> Events</p>
+        </div>
+  
+        <!-- date -->
+        <!-- <div class="date">
+          <p>13 Monday,July 2023</p>
+        </div> -->
+      </div>
+  
+      <!-- column 2 -->
+      <div class="icon-image">
+        <mat-icon>schedule</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

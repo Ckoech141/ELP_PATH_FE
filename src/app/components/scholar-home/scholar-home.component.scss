@@ -1,0 +1,156 @@
+.style2 .mat-progress-bar-fill {
+  color: #a32a29 !important;
+}
+
+.update-profile-container {
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-profile-container img {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Adjust based on your needs */
+  object-fit: cover;
+}
+
+.update-profile-container p {
+  font-size: 0.9em;
+  color: #e7e3e3;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.update-profile-container .update-profile {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.update-profile-container  {
+
+  background: rgb(255, 255, 255);
+  margin-bottom: 5px;
+  .update{
+    color: #ffffff;
+  font-weight: bold;
+  background-color: rgb(163, 42, 41);
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  }
+  
+}
+
+.skills-progress {
+  margin: 1em 0;
+  width: 90%;
+  border: 5px solid rgba(128, 128, 128, 0.203);
+  border-radius: 0.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+.skills-progress .mat-progress {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills-progress .mat-progress h4 {
+  font-size: larger;
+  color: #112829;
+}
+
+.skills-progress p {
+  font-size: small;
+  font-weight: 400;
+  color: rgba(128, 128, 128, 0.915);
+}
+
+.skills-progress .progress-title {
+  color: #2f4058;
+  font-weight: 500;
+  font-size: medium;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.display-flex {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Add gap between columns */
+  overflow-y: auto;
+  
+  /* Hide scrollbar for Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+.feedback {
+  margin-top: 25px;
+}
+
+.column-1 {
+  flex: 1 1 100%;
+  padding: 0.1rem;
+  max-height: 100vh; /* Adjust height based on your needs */
+  overflow-y: auto;
+  
+  /* Hide scrollbar for Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.column-2 {
+  flex: 1 1 100%;
+  padding: 0.1rem;
+}
+
+@media (min-width: 600px) {
+  .column-1 {
+    flex: 1 1 60%;
+    max-width: 60%;
+  }
+
+  .column-2 {
+    flex: 1 1 40%;
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 768px) {
+  .column-1 {
+    flex: 1 1 calc(70% - 1rem);
+    max-width: calc(70% - 1rem);
+    padding-left: 4px;
+  }
+
+  .column-2 {
+    flex: 1 1 calc(30% - 1rem);
+    max-width: calc(30% - 1rem);
+  }
+}

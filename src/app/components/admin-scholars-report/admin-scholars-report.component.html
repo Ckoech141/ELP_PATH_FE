@@ -1,0 +1,58 @@
+  <!-- Scholars Report -->
+  <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Scholars Reports</h5>
+      </mat-panel-title> 
+    </mat-expansion-panel-header>
+
+  <div class="flex">
+    <form [formGroup]="reportsForm"> 
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Select Scholar</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="All">All</mat-option>
+            <mat-option value="MALE">Male</mat-option>
+            <mat-option value="FEMALE">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Select year</mat-label>
+          <mat-select formControlName="year">
+            <mat-option value="option">All</mat-option>
+            <mat-option *ngFor="let year of yearOptions" [value]="year">{{year}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Select Scholar Type</mat-label>
+          <mat-select formControlName="scholarType">
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Global">Global</mat-option>
+            <mat-option value="Local">Local</mat-option>
+            <mat-option value="Regional">Regional</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Select Branch</mat-label>
+          <mat-select formControlName="branch">
+            <mat-option *ngFor="let branch of branchOptions" [value]="branch">{{branch}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <button class="info" type="submit" mat-fab extended color="primary" [disabled]="loading" (click)="processValues()">
+          <span *ngIf="!loading">Download Report</span>
+          <div *ngIf="loading" class="spinner">
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,91 @@
+
+  <!-- <div class="row">
+    <div class="col-sm-4">
+      <div class="card mt-3">
+        <div class="card-body">
+          <ng-container *ngIf="!infoContent.profileImage;else haveProfileImg">
+            <div  id="avatar">
+              <h1>{{infoContent?.firstName.substring(0,1)}}</h1>
+              <img class="card-img-top" src="../../../../assets/images/profile-avatar.png" alt="Card image cap">  
+            </div>
+           
+          </ng-container>
+
+          <ng-template #haveProfileImg>
+            <img  id="avatar" class="card-img-top" [src]="infoContent.profileImage" alt="Card image cap">
+          </ng-template>
+        </div>
+      </div>
+      <button class="btn btn-danger col-md-6 ml-3" (click)="closeInfoDialog()">close</button>
+    </div>
+    <div class="col-sm-8">
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row card-title">
+            <span class="col-md-4">Name:</span>
+            <h5 class="col-md-8">{{infoContent.firstName}} {{infoContent.lastName}} </h5>
+          </div>
+          <div class="row card-text">
+            <span class="col-md-4">username:</span>
+            <h5 class="col-md-8">{{infoContent.username}} </h5>
+          </div>
+          <div class="row card-test">
+            <span class="col-md-4">lastName</span>
+            <h5 class="col-md-8">{{infoContent.lastName}}</h5>
+          </div>
+          <div class="row card-text">
+            <span class="col-md-4">UserEmail:</span>
+            <h5 class="col-md-8">{{infoContent.userEmail}}</h5>
+          </div>
+          
+      </div>
+    </div>    
+  </div> -->
+  <div class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div style="background-color: rgb(19, 148, 141); border-radius: 100%; height: 16rem; margin: 2rem; align-items: center;">
+            <ng-container *ngIf="!infoContent.profileImage;else haveProfileImg">
+              <div  id="avatar">
+                <h1>{{infoContent?.firstName.substring(0,1)}}</h1>
+                <!-- <img class="card-img-top" src="../../../../assets/images/profile-avatar.png" alt="Card image cap">   -->
+              </div>
+             
+            </ng-container>
+  
+            <ng-template #haveProfileImg>
+              <img  id="" class="card-img-top" [src]="infoContent.profileImage" alt="Card image cap">
+            </ng-template>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row card-title">
+              <span class="col-md-4">Name:</span>
+              <h5 class="col-md-8">{{infoContent.firstName}} {{infoContent.lastName}} </h5>
+            </div>
+            <div class="row card-title">
+              <span class="col-md-4">Name:</span>
+              <h5 class="col-md-8">{{infoContent.firstName}} {{infoContent.lastName}} </h5>
+            </div>
+            <div class="row card-title">
+              <span class="col-md-4">username:</span>
+              <h5 class="col-md-8">{{infoContent.username}} </h5>
+            </div>
+            <div class="row card-title">
+              <span class="col-md-4">lastName</span>
+              <h5 class="col-md-8">{{infoContent.lastName}}</h5>
+            </div>
+            <div class="row card-title">
+              <span class="col-md-4">UserEmail:</span>
+              <h5 class="col-md-8">{{infoContent.userEmail}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

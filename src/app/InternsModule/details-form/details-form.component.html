@@ -1,0 +1,146 @@
+<head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></head>
+<div class="main-container">
+    <form [formGroup]="myForm">
+        <div class="header">
+            <img src="assets/images/logo2.png" alt="equity logo" class="logo">
+            <h3>Equity Bank 2024 Interns</h3>
+        </div>
+
+        <div class="card">
+            <!-- contact details -->
+            <div class="row">
+                    <div class="heading"><h5>Contact Information</h5></div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="col-form-label">Email</label>
+                            <input type="text" class="form-control" placeholder="enter your email" formControlName="email">
+                            <small class="text-danger" *ngIf="email?.invalid && (email?.touched || email?.dirty)">correct email required</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-form-label">Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="254........" formControlName="phoneNo">
+                            <small class="text-danger" *ngIf="phoneNo?.invalid && (phoneNo?.touched || phoneNo?.dirty)">phone number required</small>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="col-form-label">Gender</label>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" id="male" value="Male" formControlName="gender">
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" id="female" value="Female" formControlName="gender">
+                                        <label for="female" class="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-form-label">Alternative Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="254........" formControlName="altPhoneNo">
+                            <small class="text-danger" *ngIf="altPhoneNo?.invalid && (altPhoneNo?.touched || altPhoneNo?.dirty)">phone number required</small>
+                        </div>
+                    </div>
+            </div>
+    
+            <!-- school-details -->
+            <div class="row">
+                <div class="heading"><h5>School Information</h5></div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="col-form-label">HighSchool Name</label>
+                        <ng-select 
+                            [items]="schools" 
+                            bindLabel="schoolName" 
+                            bindValue="schoolName" 
+                            [autofocus]="true" 
+                            placeholder="select a school" 
+                            [searchable]="true" 
+                            [loading]="loadingSchools"
+                            loadingText="loading ..."
+                            (change)="onSchoolChange($event)" 
+                            formControlName="schoolName"></ng-select>
+                        <small class="text-danger" *ngIf="schoolName?.invalid && (schoolName?.dirty || schoolName?.touched)">highschool is required</small> 
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-form-label">Completion Year</label>
+                        <input type="number" maxlength="4" formControlName="completionYear" class="form-control" placeholder="completion year">
+                        <small class="text-danger" *ngIf="completionYear?.invalid && (completionYear?.touched || completionYear?.dirty)">completion year is required</small>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Guardian Information -->
+            <div class="row">
+                <div class="heading"><h5>Guardian Information</h5></div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="col-form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="enter the first name" formControlName="guardianFName">
+                        <small class="text-danger" *ngIf="guardianFName?.invalid && (guardianFName?.dirty || guardianFName?.touched)">first name is required</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="enter the last name" formControlName="guardianLName">
+                        <small class="text-danger" *ngIf="guardianLName?.invalid && (guardianLName?.dirty || guardianLName?.touched)">enter a value</small>
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="col-form-label">Primary Phone Number</label>
+                        <input type="number" class="form-control" placeholder="enter primary phone no" maxlength="10" formControlName="guardianPhoneNo">
+                        <small class="text-danger" *ngIf="guardianPhoneNo?.invalid && (guardianPhoneNo?.dirty || guardianPhoneNo?.touched)">enter a correct phone number</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-form-label">Alternative Phone Number</label>
+                        <input type="number" class="form-control" placeholder="enter alternative phone no" maxlength="10" formControlName="guardianAltPhoneNo">
+                        <small class="text-danger" *ngIf="guardianAltPhoneNo?.invalid && (guardianAltPhoneNo?.dirty || guardianAltPhoneNo?.touched)">enter a correct phone number</small>
+                    </div>
+                </div>
+                <div class="row gx-3 md-3">
+                    <div class="col-md-6">
+                        <label class="col-form-label">Relationship</label>
+                        <ng-select 
+                        [items]="options" 
+                        bindLabel="$implicit" 
+                        bindValue="$implicit" 
+                        [autofocus]="true" 
+                        placeholder="select the r/ship" 
+                        [searchable]="true" 
+                        (change)="onSelectionChange($event)" 
+                        formControlName="guardianRelationship"></ng-select>
+                        <small class="text-danger" *ngIf="guardianRelationship?.invalid && (guardianRelationship?.dirty || guardianRelationship?.touched)">select a relationship</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="col-form-label">Email</label>
+                        <input type="text" class="form-control" placeholder="email" formControlName="guardianEmail">
+                        <small class="text-danger" *ngIf="guardianEmail?.invalid && (guardianEmail?.dirty || guardianEmail?.touched)"></small>
+                    </div>
+                </div>
+                <div class="row gx-3 md-3">
+                    <div class="col-md-12">
+                        <label class="col-form-label">Terms and Conditions</label>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="acceptTerms" required formControlName="acceptTerms">
+                            <label class="form-check-label" for="acceptTerms">In registering to join the Equity Leaders Program, I agree to abide by the set of <a href="https://equitygroupholdings.com/ke/terms-and-conditions" style="color: blue;">rules and regulations</a>
+                                rules, regulations and expectation of the Equity Leaders program.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- submit-button -->
+            <div class="btn-container">
+                <button type="button" class="btn btn-primary submit-btn" >Submit Information</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright &copy; {{currentYear}}. Equity Bank Limited. All Rights Reserved</p>
+        </div>
+    </form>
+</div>

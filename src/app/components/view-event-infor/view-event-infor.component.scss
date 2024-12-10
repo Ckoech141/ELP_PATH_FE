@@ -1,0 +1,29 @@
+.image-fluid{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+// row2
+.iconimage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+    .iconinfo {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      gap: 5px;
+      .mat-icon {
+        color: #6259ca;
+      }
+      span {
+        margin: 0;
+        line-height: 1.5;
+        color: #8f8fb1;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+      }
+    }
+  }

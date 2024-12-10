@@ -1,0 +1,163 @@
+<div class="">
+ 
+  <div class="containerHome row">
+    <div class="column-1 col-md-8">
+      <button mat-icon-button class="menu-button" (click)="toggleLeftCard()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="card d-flex align-items-center justify-content-between ">
+        <div class="row card-group" id="user-chapters">
+          <div id="" class="col-md-4 my-1" *ngFor="let myChapter of userChapters">
+            <div class="card mt-2" (click)="selectChapter(myChapter)">
+              <div class="card-body">
+                <span class="card-title">{{ myChapter.chapterName | titlecase }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <mat-progress-bar class="mt-3" mode="query" *ngIf="isLoading"></mat-progress-bar>
+
+     
+          <div class="main-container">
+
+            <!-- sub main container -->
+            <div class="submain-container" *ngFor="let data of events">
+              <div class="content-container">
+                <!-- row3 -->
+                <div class="details">
+                  <!-- title -->
+                  <div class="title1">
+                    {{ data.eventName}}
+                  </div>
+                  <!-- description -->
+                  <div class="description">
+                    <p>
+                      {{ data.eventDescription}}
+                    </p>
+                  </div>
+
+                </div>
+                <!-- row1 -->
+                <div class="image" *ngFor="let image of data.eventImages">
+                  <img [src]="serverUrl+'images/'+image" style="width: 100%; height:auto;" alt="Event Image" />
+                </div>
+
+                <!-- row 2 -->
+                <div class="iconimage">
+                  <!-- icon container -->
+                  <div class="iconinfo">
+                    <mat-icon>event</mat-icon>
+                    <span>Date: {{ data.eventDate | date }}</span>
+                  </div>
+                  <!-- icon container -->
+                  <div class="iconinfo">
+                    <mat-icon>schedule</mat-icon>
+                    <span>Time: {{ data.eventDate | date : "shortTime" }}</span>
+                  </div>
+                  <!-- icon container -->
+                  <div class="iconinfo">
+                    <mat-icon>groups_outline</mat-icon>
+                    <span>Organizer: {{ data.organizer }}</span>
+                  </div>
+                  
+                  <!-- icon container -->
+                  <div class="iconinfo" *ngIf="data.location">
+                    <mat-icon>location_on</mat-icon>
+                    <span>Location: {{ data.location }}</span>
+                  </div>
+                  <div class="delete" *ngIf="data.eventStatus != 'PAST'; else elseTemplate">
+                    <button class="btn btn-sm btn-success" (click)="confirmAttendance(data.chapterId
+                          )">
+                      Confirm Attendance
+                    </button>
+                  </div>
+                  <ng-template #elseTemplate class="iconinfo">
+                    <span class="text-danger" style="font-weight: 900;">Status: !Past</span>
+                  </ng-template>
+
+                  <!-- icon container -->
+                  <div class="iconinfo" *ngIf="data.link">
+                    <mat-icon>link</mat-icon>
+                    <span>{{ data.link }}</span>
+                  </div>
+                </div>
+
+
+              </div>
+              <!-- mat divider -->
+            </div>
+            <!-------------------------------------------------------------------------------------------------->
+          </div>
+    </div>
+    <div class="leftcard col-md-4" [class.hidden]="!showLeftCard">
+      <div class="card-requests mt-2">
+        <div class="user-profile-image mt-2  mx-3">
+          <img [src]="serverUrl+'images/'+activeChapter?.chapterImage" *ngIf="activeChapter?.chapterImage" (error)="handleError($event)"/>
+          <mat-icon *ngIf="!activeChapter?.chapterImage">group</mat-icon>
+        </div>
+
+
+        <mat-list role="list">
+          <div class="title d-flex align-items-center justify-items-center">
+            <mat-list-item role="listitem" class="text-center">{{activeChapter?.chapterName | titlecase}} Chapter</mat-list-item>
+          </div>
+          <div class="m-3 bg-light py-3 ">
+            <div class="d-flex align-items-center justify-content-center " (click)="approveChapterEvents(activeChapter.chapterId
+                )">
+  
+              <h5>Events Approval Requests:</h5>  
+              <div class="rounded-circle">
+              </div>
+            </div>
+          </div>
+          <div class="create" (click)="createChapterEvent(activeChapter.chapterId
+                )">
+            <div class="">
+              <mat-icon>create</mat-icon>
+            </div>
+
+            <mat-list-item role="listitem">Create Event</mat-list-item>
+          </div>
+          <div class="create">
+            <div class="">
+              <mat-icon>event</mat-icon>
+            </div>
+            <mat-list-item role="listitem">Events Count:
+              <span class="border rounded-pill mx-5 px-2 py-1 float-right "
+              style="color: rgb(76, 76, 77);">{{events?.length || 0}}</span>
+            </mat-list-item>
+          </div>
+          <div class="create">
+            <div class="">
+              <mat-icon>person</mat-icon>
+            </div>
+            <mat-list-item role="listitem">Chapter President:
+              <span class=""
+                style="color: rgb(76, 76, 77);">{{activeChapter?.chapterLeaderName || 'Not set'}}</span>
+            </mat-list-item>
+          </div>
+          <div class="create">
+            <div class="">
+              <mat-icon>group</mat-icon>
+            </div>
+            <mat-list-item role="listitem">Members
+              <span class=""
+              style="color: rgb(76, 76, 77);">{{members?.length || 0}}</span>
+            </mat-list-item>
+          </div>
+          <div class="create">
+            <div class="">
+              <mat-icon>infor</mat-icon>
+            </div>
+            <mat-list-item role="listitem">Description
+              <span class=""
+              style="color: rgb(76, 76, 77);">{{activeChapter?.description || 'Chapter Desctiption Here'}}</span>
+            </mat-list-item>
+          </div>
+
+        </mat-list>
+      </div>
+    </div>
+
+  </div>

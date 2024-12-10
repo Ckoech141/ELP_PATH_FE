@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+}
+
+/* Add horizontal border only */
+th, td {
+  border-top: 1px solid black; /* Top border */
+  border-bottom: 1px solid black; /* Bottom border */
+  padding: 8px;
+  text-align: left;
+}
+
+/* Remove border from left and right */
+th:first-child, td:first-child {
+  border-left: none;
+}
+
+th:last-child, td:last-child {
+  border-right: none;
+}
+
+// button {
+//   position: absolute;
+//   top: 2px;
+//   right: 2px;
+// }

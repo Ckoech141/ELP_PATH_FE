@@ -1,0 +1,41 @@
+<form action="" >
+    <div class="container">
+        <h3 class="text-center">{{jobDetails.jobTitle}}</h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <div class="w-25">
+                        <p>We need the image of the job</p>
+                    </div>
+                    <div class="w-75">
+                        <p>Job type -> {{jobDetails.jobType}}</p>
+                        <p>Education level -> {{jobDetails.educationLevel}}</p>
+                        <p>Job Slary -> {{jobDetails.jobSalary}}</p>
+                        <p>Organisation -> {{jobDetails.organization}}</p>
+                        <p class="text-end">Application deadline -> {{jobDetails.applicationDeadLine}}</p>
+                    </div>
+                </div>
+                <div class="job w-100">
+                    <h5>job Description</h5>
+                    <p>{{jobDetails.jobDescription}}</p>
+                </div>
+                <div class="job w-100">
+                    <h5>job Application description</h5>
+                    <p>{{jobDetails.application}}</p>
+                </div>
+                <div class="job w-100">
+                    <h5>job Requirements description</h5>
+                    <div class="w-100" >
+                        <p >{{jobDetails.jobResponsibilities}}</p>
+                    </div>
+                    
+                </div>
+                <div class="job w-100">
+                    <h5>job qualification description</h5>
+                    <p>{{jobDetails.qualification}}</p>
+                </div>
+                <button class="btn btn-primary">Post Job</button>
+            </div>
+        </div>
+    </div>
+</form>

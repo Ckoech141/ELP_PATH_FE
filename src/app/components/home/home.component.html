@@ -1,0 +1,23 @@
+<div class="contentcontainer">
+  <app-navbar class="navbar"></app-navbar>
+  <div class="container-fluid">
+    <mat-sidenav-container class="content-container">
+      <!-- sidenav #row1 -->
+
+      <mat-sidenav class="sideNav" mode="side" [opened]="isShowing">
+        <!-- sidenav header -->
+        <!-- sidenav buttons -->
+        <app-user-profile-card class="profile_card"></app-user-profile-card>
+
+        <!-- sidebar menu (hubs, projects...) !-->
+        <app-side-bar-menu></app-side-bar-menu>
+      </mat-sidenav>
+
+      <mat-sidenav-content mat-elevation-z9>
+        <div class="all-content">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

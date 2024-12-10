@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="card m-3 p-1">
+        <form class="form-group" [formGroup]="hubAdmin" (ngSubmit)="setHubAdmin()">
+            <mat-form-field>
+                <mat-label>Select member</mat-label>
+                <mat-select formControlName="adminId">
+                  <mat-option
+                  *ngFor="let member of hubMembers"
+                 
+                  [value]="member.member.id">
+                   {{member.member.firstName}}
+                   {{member.member.lastName}}
+                </mat-option>
+                </mat-select>
+           </mat-form-field>
+           <div class="submit-btn">
+            <ng-container *ngIf="!isSubmitting; else elseTemplate">
+                <button id="submit" class="btn btn-sm btn-primary" type="submit" (keydown.enter)="(setHubAdmin)">Add Hub Admin</button>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <mat-spinner id="sending" ></mat-spinner>
+              </ng-template>
+           </div>
+        </form>
+
+    </div>
+</div>

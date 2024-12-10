@@ -1,0 +1,212 @@
+<div class="container" *ngIf="isSuccess; else elseBlock">
+  <form action="" [formGroup]= "jobForm" class="w-100 bg-sucess" (ngSubmit) = "onSubmit()">
+    <div class="container-fluid">
+      <h3 class="text-center">Post A Job</h3>
+      <div class="row"> 
+             <div class="form-group col-sm-12 col-md-12 col-lg-6">
+            <label for="">Enter Job Title</label>
+            <input type="text" class="form-control" placeholder="E.g Software Engineer" formControlName = "jobTitle"
+            [class.invalid] = "
+            jobForm.get('jobTitle')?.invalid &&
+              (jobForm.get('jobTitle')?.dirty || jobForm.get('jobTitle')?.touched || isSubmitted)">
+              <span 
+              *ngIf = "
+              jobForm.get('jobTitle')?.invalid &&
+              (jobForm.get('jobTitle')?.dirty || jobForm.get('jobTitle')?.touched || isSubmitted)" class="error text-danger">
+              Job Title is required</span>
+              </div>
+          <div class="form-group col-sm-12 col-md-12 col-lg-6">
+            <label class="form-label" for="jobType">Job Type</label>
+                  
+                  <mat-select formControlName="jobType" 
+                  class="form-control"
+                  [class.invalid] = "
+                    jobForm.get('jobType')?.invalid &&
+                    (jobForm.get('jobType')?.dirty || jobForm.get('jobType')?.touched || isSubmitted)">
+    
+                    <mat-option id="jobType"
+                      *ngFor="let job of jobOptions"
+                      [value]="job"
+                    >
+                      {{ job | titlecase }}
+                    </mat-option>
+                  </mat-select>
+                  <span 
+                  *ngIf = "
+                  jobForm.get('jobType')?.invalid &&
+                  (jobForm.get('jobType')?.dirty || jobForm.get('jobType')?.touched || isSubmitted)" class="error text-danger">
+                  Job type is required</span>
+          </div>
+          
+          <div class="form-group col-sm-12 col-md-12 col-lg-6">
+            <label class="form-label" for="educationLevel">Education Level</label>
+                  <mat-select formControlName="educationLevel"  >
+                    <mat-option id="educationLevel"
+                      *ngFor="let education of IevelOptions"
+                      [value]="education"
+                      [class.invalid] = "
+                    jobForm.get('educationLevel')?.invalid &&
+                    (jobForm.get('educationLevel')?.dirty || jobForm.get('educationLevel')?.touched || isSubmitted)"
+                    >
+                      {{ education | titlecase }}
+                    </mat-option>
+                  </mat-select>
+                  <span 
+                  *ngIf = "
+                  jobForm.get('jobSalary')?.invalid &&
+                  (jobForm.get('jobSalary')?.dirty || jobForm.get('jobSalary')?.touched || isSubmitted)" class="error text-danger">
+                  Education level is required</span>
+          </div>
+    
+          <div class="form-group col-sm-12 col-md-12 col-lg-6">
+                <label  for="applicationDeadLine">applicationDeadLine</label>
+                <input
+                  type="datetime-local"
+                  id="applicationDeadLine"
+                  formControlName="applicationDeadLine"
+                  autocomplete="off"
+                  class="form-control"
+                  [class.invalid] = "
+                  jobForm.get('applicationDeadLine')?.invalid &&
+                  (jobForm.get('applicationDeadLine')?.dirty || jobForm.get('applicationDeadLine')?.touched || isSubmitted)"
+                  
+                />
+                <span 
+                  *ngIf = "
+                  jobForm.get('jobSalary')?.invalid &&
+                  (jobForm.get('jobSalary')?.dirty || jobForm.get('jobSalary')?.touched || isSubmitted)" class="error text-danger">
+                  Application deadLine level is required</span>
+          </div>     
+          <div class="form-group col-sm-12 col-md-12 col-lg-6">
+            <label  for="org">Organization</label>
+            <input
+              type="text"
+              id="org"
+              formControlName="organization"
+              autocomplete="off"
+              class="form-control"
+              [class.invalid] = "
+              jobForm.get('organization')?.invalid &&
+              (jobForm.get('organization')?.dirty || jobForm.get('organization')?.touched || isSubmitted)"
+              
+            />
+            <span 
+              *ngIf = "
+              jobForm.get('organization')?.invalid &&
+              (jobForm.get('organization')?.dirty || jobForm.get('organization')?.touched || isSubmitted)" class="error text-danger">
+              Organisation name is required</span>
+      </div>  
+    
+      <div class="col-sm-12 form-group">
+        <label for="jobDescription">Enter Job Description</label>
+        <textarea
+                id="jobDescription"
+                placeholder="eg.Proficiency in Microsoft Office Suite "
+                wrap="hard"
+                rows="3"
+                cols="50"
+                formControlName="jobDescription"
+                autocomplete="off"
+                [class.invalid] = "
+                jobForm.get('jobDescription')?.invalid &&
+                (jobForm.get('jobDescription')?.dirty || jobForm.get('jobDescription')?.touched || isSubmitted)"
+              ></textarea>
+            <span 
+              *ngIf = "
+              jobForm.get('jobDescription')?.invalid &&
+              (jobForm.get('jobDescription')?.dirty || jobForm.get('jobDescription')?.touched || isSubmitted)" class="error text-danger">
+              Job description is required</span>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="jobApplication">How to apply description</label>
+        <textarea
+                id="jobApplication"
+                placeholder="eg.Proficiency in Microsoft Office Suite "
+                wrap="hard"
+                rows="3"
+                cols="50"
+                formControlName="application"
+                autocomplete="off"
+                [class.invalid] = "
+                jobForm.get('application')?.invalid &&
+                (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)"
+              ></textarea>
+            <span 
+              *ngIf = "
+              jobForm.get('application')?.invalid &&
+              (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)" class="error text-danger">
+              Application description is required</span>
+      </div>
+      <div class="col-sm-12 form-group">
+          <label for="qualification">Add job qualification</label>
+        <textarea
+                id="qualification"
+                placeholder="eg.Proficiency in Microsoft Office Suite "
+                wrap="hard"
+                rows="3"
+                cols="50"
+                formControlName="qualification"
+                autocomplete="off"
+                [class.invalid] = "
+                jobForm.get('application')?.invalid &&
+                (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)"
+              ></textarea>
+            <span 
+              *ngIf = "
+              jobForm.get('application')?.invalid &&
+              (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)" class="error text-danger">
+              job qualification is required</span>
+      </div>
+    
+      <div class="col-sm-12 form-group">
+          <label for="jobResponsibility">Add job Responsibilities</label>
+        <textarea
+                id="jobResponsibility"
+                placeholder="eg.Proficiency in Microsoft Office Suite "
+                wrap="hard"
+                rows="3"
+                cols="50"
+                formControlName="responsibility"
+                autocomplete="off"
+                [class.invalid] = "
+                jobForm.get('application')?.invalid &&
+                (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)"
+              ></textarea>
+            <span 
+              *ngIf = "
+              jobForm.get('application')?.invalid &&
+              (jobForm.get('application')?.dirty || jobForm.get('application')?.touched || isSubmitted)" class="error text-danger">
+              Job description is required</span>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="jobImage">Select a job image</label>
+        <input type="file" (change) = "onFileChange($event)">
+        <!-- <input 
+        type="file"
+        id="imagefile"
+        style="display: none"
+        (change)="onFileChange($event)"/> -->
+    <!-- 
+       accept="image/*"
+       name="file" -->
+    <!-- [class.invalid] = "
+    jobForm.get('jobPoster')?.invalid &&
+    (jobForm.get('jobPoster')?.dirty || jobForm.get('jobPoster')?.touched || isSubmitted)" -->
+        <!-- <span 
+              *ngIf = "
+              jobForm.get('jobPoster')?.invalid &&
+              (jobForm.get('jobPoster')?.dirty || jobForm.get('jobPoster')?.touched || isSubmitted)" class="error text-danger">
+              job image is required</span> -->
+      </div>
+          <button type="submit" class="btn btn-primary m-3"> Add Job</button>
+        </div>
+      </div>
+    </form>
+</div>
+
+<ng-template #elseBlock>
+  <div class="container">
+    <h1 class="p-5 text-center">{{message}}</h1>
+  </div>
+
+</ng-template>

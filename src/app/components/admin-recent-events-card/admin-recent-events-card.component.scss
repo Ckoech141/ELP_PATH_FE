@@ -1,0 +1,89 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgb(230,173,94);
+    border-radius: 11px;
+  }
+  .content-container {
+    width: 85%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .title {
+    P {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-size: 15px;
+      color: rgb(163,42,41);
+      font-weight: 500;
+    }
+  }
+  .details {
+    padding: 1rem !important ;
+    width: 89%;
+    background-color: #eaedf7;
+    border-radius: 11px;
+  }
+  
+  .description {
+    display: flex;
+  
+    align-items: center;
+    gap: 10px;
+    .chapter-profile-image {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      background-color: #eaedf7;
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
+    }
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 14px;
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+  }
+  .numbers {
+    p {
+      margin: 0;
+      letter-spacing: 0.4px;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 14px;
+      color: rgb(163,42,41);
+    }
+  }
+  .date {
+    p {
+      font-size: 12px;
+      margin-top: 3px;
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+  .activity-name {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    p {
+      color: rgb(230,173,94);
+      margin-top: 0;
+      font-weight: 500;
+      span {
+        color: rgb(163,42,41);
+      }
+    }
+  }

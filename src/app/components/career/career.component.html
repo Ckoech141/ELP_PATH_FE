@@ -1,0 +1,69 @@
+<div class="main-container">
+  <div
+    class="add"
+    matTooltip="Add Career"
+    matTooltipPosition="left"
+    matTooltipClass="tooltip"
+    (click)="aformDialog('add')"
+    *ngIf="!viewer"
+  >
+    <mat-icon>add_circle_outline</mat-icon>Add
+  </div>
+  <div class="row" *ngFor="let row of rowData">
+    <div class="container">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon class="vert">more_vert</mat-icon>
+      </button>
+    <mat-menu #menu="matMenu">
+      <div class="icons">
+        <div class="edit">
+          <div
+            class="edit"
+            matTooltip="Edit Career"
+            matTooltipPosition="left"
+            matTooltipClass="tooltip"
+            *ngIf="!viewer"
+            (click)="cformDialog(row)"
+          >
+            <mat-icon>edit</mat-icon>Edit
+          </div>
+        </div>
+        <div class="delete" *ngIf="!viewer">
+          <button mat-icon-button color="warn" (click)="deleteCareer(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      </mat-menu>
+    
+      <div class="content">
+        <p>
+         <span class="title">Company Name:</span> {{ row.companyName | titlecase }}
+        </p>
+        <p>
+          <span class="title">Position:</span> {{ row.position | titlecase }}
+        </p>
+        <p>
+          <span class="title">Sector: </span> {{ row.organizationSector | titlecase }}
+        </p>
+        <p> 
+          <span class="title">Description:</span> {{ row.description }}
+        </p>
+
+        <div class="date">
+          <div class="start_date">
+            <label>Start Date: </label>
+            <p>{{ row.start_date | date }}</p>
+          </div>
+          <div class="end_date">
+            <label>End Date: </label>
+            <p>{{ row.end_date || "To date" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+ 
+
+

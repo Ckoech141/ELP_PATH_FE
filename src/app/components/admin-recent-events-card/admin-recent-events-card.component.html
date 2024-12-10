@@ -1,0 +1,37 @@
+<div class="container mb-2">
+  <div class="content-container">
+    <div class="details w-100">
+      <div class="title w-100">
+        <h5>Past Events</h5>
+      </div>
+      <!-- <div class="description">
+        <p>Number of Events this Month</p>
+      </div> -->
+      <div class="numbers">
+        <p>{{ eventsCount }} Events</p>
+      </div>
+
+      <div class="event-list">
+        <div *ngIf="events">
+          <ul *ngFor="let event of (allEventsDisplayed ? events : events.slice(0, 20))">
+            <li (click) = "viewEventInfor(event.id)">{{ event.eventName }} - {{ event.eventDate | date: 'mediumDate' }}</li>
+          </ul>
+          <button *ngIf="!allEventsDisplayed" (click)="toggleEventsDisplay()">Show all</button>
+          <button *ngIf="allEventsDisplayed" (click)="toggleEventsDisplay()">Show less</button>
+        </div>
+        <p *ngIf="!events && !error">Loading Events...</p>
+        <p *ngIf="error"> {{ error }}</p>
+      </div>
+      
+      
+
+      <!-- <div class="date">
+        <p>{{ currentDate | date: "fullDate" }}</p>
+      </div>
+    </div> -->
+
+    <!-- <div class="icon-image">
+      <mat-icon>rocket_launch</mat-icon>
+    </div> -->
+  </div>
+</div>

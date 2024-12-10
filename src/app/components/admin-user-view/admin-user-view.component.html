@@ -1,0 +1,36 @@
+<div class="card" style="width: 32vw;">
+    <div class="card-body">
+        <div class="row">
+            <div id="img-card" class="col-md-4 col-sm-3 d-flex justify-content-center align-items-center">
+                    <div *ngIf="userData.profileImage;else elseTemplate" >
+                        <img [src]="userData.profileImage" class="card-img-top" alt="...">
+                    </div>
+                    <ng-template #elseTemplate>
+                        <div >
+                            <h1 class="text-white">{{userData.firstName.substring(0,1)}}</h1>
+                        </div>
+                    </ng-template>
+            </div>
+            <div class="col-md-7 align-content-center">
+                <h5 class="card-title">{{userData?.firstName}} Profile</h5>
+    
+                <div class="row">
+                  <span>First Name</span>
+                  <h6 class="card-subtitle mb-2 text-muted">{{userData?.firstName}} {{userData.lastName}}</h6>
+                </div>
+                <div class="row">
+                  <span>User Email</span>
+                  <h6 class="card-subtitle mb-2 text-muted">{{userData?.userEmail}}</h6>
+                </div>
+                <div class="row">
+                  <span>User Role</span>
+                  <h6 class="card-subtitle mb-2 text-muted">{{userData?.role.roleName}}</h6>
+                </div>
+          
+              </div>
+        </div>
+        
+        </div>
+
+      
+  </div>

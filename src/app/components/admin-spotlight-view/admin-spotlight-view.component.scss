@@ -1,0 +1,31 @@
+.card{
+    background-color: rgb(255, 255, 255);
+    padding: 50px 10px;
+}
+#img{
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50%;
+    height: 8rem;
+    width: 8rem;
+    padding: 3px;
+    background-color: transparent;
+  }
+  .card-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 3px;
+  }
+  .close{
+    
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  span{
+    color: rgb(99, 98, 98);
+    font-weight: 900;
+    font: 1.5em sans-serif;
+  }

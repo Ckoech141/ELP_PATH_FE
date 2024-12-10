@@ -1,0 +1,42 @@
+<div class="p-2">
+  <div class="add-people-header">
+    <span style="color: rgb(161, 42, 41);"><h3>People</h3></span>
+  </div>
+  <div class="w-100">
+    <mat-divider></mat-divider>
+  </div>
+  <!-- add people -->
+  <div class="add-people" *ngFor="let data of PeopleProfileData">
+    <a [routerLink]="['/userprofile', data.userId]">
+      <div class="add-people-card">
+        <div class="add-people-card-profile-img">
+          <img *ngIf="data.imageUrl" [src]="data.imageUrl" />
+          <div class="profile-border" *ngIf="!data.imageUrl">
+            <mat-icon >person</mat-icon>
+          </div>
+          
+        </div>
+        <div class="add-people-card-info">
+          <div class="add-people-card-info-name">
+            <!-- <span>{{ data.firstName }} {{ data.lastName }}</span> -->
+            <span>{{ data.title }}</span>
+
+          </div>
+          <div class="add-people-card-info-profession">
+            <span>From {{ data.branch }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="matdivider">
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+
+  <!-- more people -->
+  <a routerLink="/people">
+    <div class="more-people">
+      <span> Discover More People </span>
+    </div></a
+  >
+</div>

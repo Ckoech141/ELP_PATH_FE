@@ -1,0 +1,90 @@
+<div class="main-container">
+    <div class="container">
+      <div class="form-container">
+
+        <form
+          [formGroup]="chapterForm"
+          class="chapter-form"
+          (ngSubmit)="submit()"
+          enctype="multipart/form-data"
+        >
+          <!-- form field -->
+          <div class="form-field">
+            <!-- label -->
+            <label class="form-label">Chapter Name </label>
+            <!-- input -->
+            <input
+              type="text"
+              name="chapterName"
+              placeholder="eg. Engineering"
+              formControlName="chapterName"
+            />
+          </div>
+  
+  
+          <!-- form field -->
+          <div class="form-field">
+            <!-- label -->
+            <label class="form-label">Chapter Description </label>
+            <textarea
+              rows="6"
+              cols="30"
+              name="chapterDescription"
+              placeholder="eg. Everything This Chapter"
+              formControlName="chapterDescription"
+              wrap="hard"
+            ></textarea>
+          </div>
+         
+  
+  
+          <!------------------------------------------------------------------------------------------------>
+  
+          <!-- form field -->
+          <form class="form-field" [formGroup]="leader">
+            <h6>Set Chapter Leader For This Chapter</h6>
+              <mat-label>Select Chapter Leader</mat-label>
+              <mat-select 
+                matInput
+                formControlName="leader"
+               name="leader">
+                @for (user of chapterUsers; track user) {
+                  <mat-option [value]="user.id">{{user.firstName}} {{user.lastName}}</mat-option>
+                }
+              </mat-select>
+            </form>
+  
+          <!-- form field -->
+          <div class="form-field">
+            <input
+              type="file"
+              id="imagefile"
+              name="file"
+              style="display: none"
+              (change)="onFileChange($event)"
+              accept="image/*"
+              multiple
+            />
+            <div class="select-image">
+              <label for="imagefile">Select Image or logo</label>
+              <div *ngIf="imageUrl" class="image-item">
+                <img [src]="imageUrl" alt="Profile Image" />
+              </div>
+            </div>
+          </div>
+  
+          <div class="save-button">
+            <button
+              (keydown.enter)="submit()"
+              type="submit"
+              class="button"
+              [disabled]="chapterForm.invalid"
+            >
+              updateChapter
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

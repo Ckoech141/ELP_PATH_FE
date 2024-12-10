@@ -1,0 +1,137 @@
+.container-fluid {
+  width: 100%;
+  display: flex;
+  gap: 2%;
+  height: 100%;
+  justify-content: center;
+  // align-items: center;
+  margin-top: 2%;
+}
+
+//chapters
+.chapters-container {
+  padding: 0.5rem !important;
+  width: 70%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  border-radius: 11px;
+  overflow-y: auto;
+  // background-color: white;
+}
+.card-requests {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 11px;
+  align-items: center;
+  box-shadow: 0 4px 8px rgb(230,173,94);
+  // border: 1px solid #dee2e6;
+}
+.chapter-card:hover {
+  .chapter-profile-image {
+    background-color: white;
+    img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+.btn-requests{
+  padding: 4px 10px;
+  border-radius: 10px;
+  color: rgb(163,42,41);
+  font-size: large;
+  font-weight: 900;
+  border: 0.1px solid rgb(249, 249, 249);
+}
+.rounded-circle{
+  position: absolute;
+  top: -10px;
+  right: -2px;
+  padding:2px 8px;
+  border-radius: 25%;
+  border: 0.2px solid gray;
+  background-color: rgb(163,42,41);
+}
+.count{
+  color: white;
+  font: 1em sans-serif;
+  font-weight: 800;
+}
+// .backimage {
+//   img {
+//     width: 100%;
+//     border-top-left-radius: 11px;
+//     border-top-right-radius: 11px;
+//   }
+// }
+.chapter-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-top: 10%;
+  margin-bottom: 10px;
+  // background-color: #eaedf7;
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+  }
+  .mat-icon {
+    color: #8f8fb1;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.chapter-title {
+  width: 90%;
+  font-size: 16px;
+  color: #3c4858;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+.chapter-details {
+  width: 80%;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  color: #8f8fb1;
+  margin-bottom: 0.25rem !important;
+  p {
+    margin: 0;
+  }
+}
+.view-button {
+  border: 0;
+  color: rgb(163,42,41);
+  padding: 8px 20px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.view-button:hover {
+  background-color: rgb(163,42,41);
+}
+// activity
+.activity-container {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
